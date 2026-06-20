@@ -44,7 +44,7 @@ A publicação é automática via GitHub Actions (`.github/workflows/deploy.yml`
 1. Em **Settings → Pages**, defina **Source = GitHub Actions**.
 2. Todo push na branch `main` dispara `npm ci && npm run build` (export estático
    em `./out`) e publica no Pages.
-3. Domínio custom: `plantonista50.app.br` (servido via `public/CNAME`).
+3. Domínio custom: `plantonista50.ia.br` (servido via `public/CNAME`).
    `public/.nojekyll` evita que o Jekyll do Pages descarte a pasta `_next/`.
 
 Build local do export estático:

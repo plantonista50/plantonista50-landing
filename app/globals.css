@@ -97,14 +97,88 @@ img {
   );
 }
 
-/* ============= palco do Selo Plantonista (WebGL fixo) ============= */
-.suguinhos-stage {
+/* ============= palco de "O Fluxo" (WebGL fixo) ============= */
+.scene-stage {
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   will-change: opacity;
   contain: strict;
+}
+
+/* HUD: nomeia a etapa atual do pipeline conforme as lâminas abrem */
+.scene-hud {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(8, 11, 17, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-jetbrains, "JetBrains Mono"), ui-monospace, monospace;
+  opacity: 0;
+  will-change: opacity;
+  z-index: 6;
+}
+.scene-hud-idx {
+  color: var(--accent-bright);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.scene-hud-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+}
+.scene-hud-label {
+  color: var(--ink-2);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  min-width: 116px;
+}
+.scene-hud-track {
+  position: relative;
+  width: 64px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.scene-hud-bar {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent-bright));
+}
+.scene-hud-tag {
+  color: var(--ink-4);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+}
+@media (max-width: 640px) {
+  .scene-hud {
+    bottom: 78px;
+    gap: 9px;
+    padding: 7px 12px;
+  }
+  .scene-hud-label {
+    min-width: 96px;
+    font-size: 0.64rem;
+  }
+  .scene-hud-track {
+    display: none;
+  }
 }
 
 /* progresso */

@@ -1,6 +1,6 @@
 import { Nav } from "@/components/nav";
 import { StickyCta } from "@/components/sticky-cta";
-import { SuguinhosStage } from "@/lib/suguinhos/stage";
+import { FluxStage } from "@/lib/scene/flux-stage";
 import { Hero } from "@/components/hero";
 import { PrivacyAct } from "@/components/privacy-act";
 import { Telemetry } from "@/components/telemetry";
@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <div className="world-bg" aria-hidden="true" />
-      <SuguinhosStage />
+      <FluxStage />
       <div className="progress" aria-hidden="true">
         <i />
       </div>

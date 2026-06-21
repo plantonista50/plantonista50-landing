@@ -23,7 +23,7 @@ export function Safety() {
               <em className="italic text-accent font-semibold">Anonimizar antes de processar</em> — e não depois — não é escolha técnica. É declaração de valores.
             </p>
             <p className="text-ink-2 text-base leading-relaxed mb-3.5">
-              O <b className="text-ink">ANONM 4.0</b> protege todas as suguinhas. A inteligência artificial nunca vê o nome do seu paciente. Os dados sensíveis são removidos no servidor, em camadas, <b className="text-ink">antes</b> de qualquer análise. Cada remoção fica registrada.
+              O <b className="text-ink">ANONM 4.0</b> protege todos os suguinhas. A inteligência artificial nunca vê o nome do seu paciente. Os dados sensíveis são removidos no servidor, em camadas, <b className="text-ink">antes</b> de qualquer análise. Cada remoção fica registrada.
             </p>
             <ul className="list-none grid gap-3 mt-5">
               {[

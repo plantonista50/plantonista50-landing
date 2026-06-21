@@ -97,60 +97,14 @@ img {
   );
 }
 
-/* ============= palco da Lente Cirúrgica (WebGL fixo) ============= */
-.lens-stage {
+/* ============= palco do Selo Plantonista (WebGL fixo) ============= */
+.suguinhos-stage {
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   will-change: opacity;
   contain: strict;
-}
-.lens-caption {
-  position: fixed;
-  left: 50%;
-  bottom: 34px;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  background: rgba(8, 11, 17, 0.62);
-  border: 1px solid var(--hairline);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  font-family: var(--font-jetbrains, "JetBrains Mono"), monospace;
-  opacity: 0;
-  pointer-events: none;
-  will-change: opacity;
-}
-.lens-caption-idx {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-}
-.lens-caption-rule {
-  width: 18px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-.lens-caption-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.16em;
-}
-.lens-caption-tag {
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--ink-4);
-  letter-spacing: 0.18em;
-  padding-left: 11px;
-  margin-left: 3px;
-  border-left: 1px solid var(--hairline);
 }
 
 /* progresso */
@@ -417,72 +371,78 @@ img {
   transform: rotate(45deg);
 }
 
-/* moldura sutil da coluna da Lente (centro transparente → o cristal aparece) */
-.lens-reserve {
-  min-height: 560px;
+/* ============================================================
+   MOBILE GUARDS — nada estoura abaixo de 768 px.
+   ============================================================ */
+@media (max-width: 767px) {
+  /* O Ato de Privacidade tem 3 cenas absolute-positioned que se
+     animam empilhadas no desktop. Em mobile, viram fluxo normal. */
+  .act .act-pin {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 56px 16px !important;
+  }
+  .act .scene {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 40px 4px !important;
+    width: 100%;
+  }
+
+  /* Cards/HUDs nunca passam da viewport */
+  .hud,
+  .news2-hud,
+  .anonm-viz,
+  .device-card,
+  .mod,
+  .wound-card,
+  .testi {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* "Tabelas-flex" (rows com label + chip + chip) quebram com elegância */
+  .anonm-viz > div,
+  .news2-hud > div {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  /* Padding lateral menos agressivo */
+  section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Quebra palavras longas dentro de chips/labels */
+  .anonm-viz span,
+  .news2-hud span,
+  .device-card span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* O glow gigantesco do hero não rola a viewport */
+  .glow {
+    max-width: 100vw;
+    overflow: hidden;
+  }
 }
-.lens-reserve-frame {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  height: 480px;
-  border: 1px solid var(--hairline);
-  border-radius: 24px;
-  background:
-    radial-gradient(ellipse at center, transparent 55%, rgba(34, 211, 238, 0.03) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 18px 20px;
-  pointer-events: none;
-}
-.lens-reserve-frame::before,
-.lens-reserve-frame::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-color: var(--accent);
-  opacity: 0.7;
-}
-.lens-reserve-frame::before {
-  top: -1px;
-  left: -1px;
-  border-top: 1px solid;
-  border-left: 1px solid;
-}
-.lens-reserve-frame::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 1px solid;
-  border-right: 1px solid;
-}
-.lens-reserve-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  align-self: flex-start;
-  font-family: var(--font-jetbrains, "JetBrains Mono"), monospace;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-}
-.lens-reserve-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 1px;
-  box-shadow: 0 0 10px var(--accent-glow);
-  animation: pulse-orb 2.4s ease-in-out infinite;
-}
-.lens-reserve-hint {
-  align-self: flex-end;
-  font-family: var(--font-jetbrains, "JetBrains Mono"), monospace;
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--ink-4);
+
+/* véu extra no mobile p/ manter o hero legível mesmo com o selo atrás */
+@media (max-width: 1023px) {
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 30% 35%, rgba(6, 8, 12, 0.78) 0%, rgba(6, 8, 12, 0.55) 40%, transparent 75%);
+  }
 }
 
 /* hero video bg */

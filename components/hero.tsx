@@ -20,7 +20,7 @@ export function Hero() {
         style={{ top: "-300px", left: "50%", transform: "translateX(-50%)", width: 1400, height: 900, willChange: "transform, opacity" }}
       />
 
-      <div className="max-w-page mx-auto w-full relative z-[3] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
+      <div className="max-w-page mx-auto w-full relative z-[3] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-20 items-center">
         <div>
           <div
             className="inline-flex items-center gap-3 flex-wrap py-2 px-3.5 rounded-full mb-6 font-mono text-[.72rem] text-ink-2"
@@ -85,7 +85,7 @@ export function Hero() {
               className="bg-transparent text-ink border border-[color:var(--border)] py-4 px-[22px] rounded-[10px] font-medium text-base inline-flex items-center justify-center gap-2 transition-all duration-500 ease-power3 hover:border-accent hover:text-accent-bright"
               style={{ background: "transparent" }}
             >
-              Conhecer a SuGa Suite
+              Conhecer o Selo SuGa
             </a>
           </div>
 
@@ -96,18 +96,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Área reservada para a Lente Cirúrgica — o cristal 3D é renderizado
-            pelo <LensStage/> (canvas WebGL fixo) e se alinha a esta coluna.
-            Em telas estreitas a lente fica centralizada atrás do texto. */}
-        <div className="lens-reserve relative hidden lg:flex items-center justify-center" aria-hidden="true">
-          <div className="lens-reserve-frame">
-            <span className="lens-reserve-tag">
-              <span className="lens-reserve-dot" />
-              ANONM 4.0 · PIPELINE
-            </span>
-            <span className="lens-reserve-hint">OCR → FIREWALL → LLM → GUARD → RENDER</span>
-          </div>
-        </div>
+        {/* O Selo Plantonista (canvas WebGL fixo no <SuguinhosStage/>) é um
+            objeto único centrado, em camada de fundo sob o conteúdo — não
+            precisa reservar área aqui no DOM. */}
       </div>
 
       <div id="scrollCue" className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 font-mono text-ink-3 text-[.66rem] tracking-[.2em] uppercase z-[5]">

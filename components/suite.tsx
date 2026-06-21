@@ -32,12 +32,12 @@ export function Suite() {
     <section className="py-24 md:py-36" id="suite">
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div data-reveal data-dir="left" className="mb-9">
-          <Kicker code="REF · 01–07">A SuGa Suite</Kicker>
+          <Kicker code="REF · 01–07">O Selo SuGa</Kicker>
           <h2 className="font-bold text-ink leading-[1.04] mb-4.5" style={{ fontSize: "clamp(2rem, 7vw, 4rem)", letterSpacing: "-.035em" }}>
-            Sete suguinhas. <em className="italic text-accent font-semibold">Um copiloto.</em>
+            Sete suguinhas. <em className="italic text-accent font-semibold">Um selo.</em>
           </h2>
           <p className="text-ink-2 max-w-[640px] leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Cada suguinha cobre um momento do plantão. Todas começam pelo ANONM 4.0 — então você usa sem medo, sem precisar de mais uma assinatura.
+            Cada suguinha cobre um momento do plantão. Todos começam pelo ANONM 4.0 — então você usa sem medo, sem precisar de mais uma assinatura.
           </p>
         </div>
 

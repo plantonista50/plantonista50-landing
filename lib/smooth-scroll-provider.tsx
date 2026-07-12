@@ -257,6 +257,115 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         });
       }
 
+      // ============ DEMO pinado · o produto scrubbed como vídeo ============
+      // Cada beat usa ease:none dentro de timeline com scrub → o dedo do
+      // usuário controla o "frame", como sequência de imagens da Apple.
+      if (!reduce) {
+        const mm2 = gsap.matchMedia();
+        mm2.add("(min-width: 768px)", () => {
+          const demo = document.querySelector<HTMLElement>(".demo");
+          if (!demo) return;
+          const screens = gsap.utils.toArray<HTMLElement>(".demo .demo-screen");
+          const steps = gsap.utils.toArray<HTMLElement>(".demo .demo-step");
+          const linesOf = (s: HTMLElement) => gsap.utils.toArray<HTMLElement>(s.querySelectorAll("[data-line]"));
+          const piiOf = (s: HTMLElement) => gsap.utils.toArray<HTMLElement>(s.querySelectorAll("[data-pii]"));
+
+          // estado inicial: só a 1ª tela visível, linhas escondidas
+          screens.forEach((s, i) => gsap.set(s, { autoAlpha: i === 0 ? 1 : 0 }));
+          screens.forEach((s) => gsap.set(linesOf(s), { autoAlpha: 0, y: 14 }));
+          gsap.set(".demo .pii-tag", { autoAlpha: 0, scale: 0.85 });
+          gsap.set(".demo .demo-alert", { scale: 0.96 });
+
+          const activate = (i: number) => () =>
+            steps.forEach((st, j) => st.classList.toggle("on", j <= i));
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".demo",
+              start: "top top",
+              end: "+=420%",
+              pin: ".demo-pin",
+              scrub: 1,
+              anticipatePin: 1,
+            },
+          });
+
+          const exam = screens[0], result = screens[1], triagem = screens[2], ipass = screens[3];
+
+          // CENA 1 · linhas do exame "digitam" frame a frame
+          tl.call(activate(0))
+            .to(linesOf(exam), { autoAlpha: 1, y: 0, duration: 1, ease: "none", stagger: 0.5 })
+            .to({}, { duration: 0.6 });
+
+          // CENA 2 · ANONM censura cada PII, uma por uma + barra do firewall
+          tl.call(activate(1))
+            .to(".demo .demo-fwbar-fill", { scaleX: 1, duration: 3.2, ease: "none" }, "<")
+            .to(piiOf(exam).map((w) => w.querySelector(".pii-raw")), { autoAlpha: 0.18, duration: 0.5, ease: "none", stagger: 0.55 }, "<")
+            .to(piiOf(exam).map((w) => w.querySelector(".pii-tag")), { autoAlpha: 1, scale: 1, duration: 0.5, ease: "none", stagger: 0.55 }, "<0.15")
+            .to({}, { duration: 0.6 });
+
+          // troca de tela: exam → result
+          tl.to(exam, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
+            .to(result, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+
+          // CENA 3 · resultado compacto
+          tl.call(activate(2))
+            .to(linesOf(result), { autoAlpha: 1, y: 0, duration: 1, ease: "none", stagger: 0.7 })
+            .to({}, { duration: 0.8 });
+
+          // troca: result → triagem
+          tl.to(result, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
+            .to(triagem, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+
+          // CENA 4 · leitos pipocam, alerta por último com ênfase
+          tl.call(activate(3))
+            .to(linesOf(triagem).slice(0, -1), { autoAlpha: 1, y: 0, duration: 0.8, ease: "none", stagger: 0.35 })
+            .to(linesOf(triagem).slice(-1), { autoAlpha: 1, y: 0, scale: 1, duration: 0.9, ease: "none" })
+            .to({}, { duration: 0.8 });
+
+          // troca: triagem → ipass
+          tl.to(triagem, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
+            .to(ipass, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+
+          // CENA 5 · handoff por gravidade
+          tl.call(activate(4))
+            .to(linesOf(ipass), { autoAlpha: 1, y: 0, duration: 0.9, ease: "none", stagger: 0.55 })
+            .to({}, { duration: 1 });
+        });
+        mm2.add("(max-width: 767px)", () => {
+          // mobile: sem pin — cenas empilhadas e visíveis (fail-safe)
+          document.querySelectorAll<HTMLElement>(".demo .demo-screen").forEach((s) => {
+            s.style.position = "relative";
+            s.style.opacity = "1";
+            s.style.visibility = "visible";
+          });
+          document.querySelectorAll<HTMLElement>(".demo [data-line]").forEach((l) => {
+            l.style.opacity = "1";
+            l.style.transform = "none";
+            l.style.visibility = "visible";
+          });
+          document.querySelectorAll<HTMLElement>(".demo .pii-tag").forEach((t) => {
+            t.style.opacity = "1";
+            t.style.transform = "none";
+            t.style.visibility = "visible";
+          });
+          document.querySelectorAll<HTMLElement>(".demo .pii-raw").forEach((r) => {
+            r.style.opacity = "0.18";
+          });
+          const fill = document.querySelector<HTMLElement>(".demo .demo-fwbar-fill");
+          if (fill) fill.style.transform = "scaleX(1)";
+        });
+      } else {
+        // reduced-motion: tudo visível, censura aplicada (estado final)
+        document.querySelectorAll<HTMLElement>(".demo .demo-screen, .demo [data-line], .demo .pii-tag").forEach((el) => {
+          el.style.opacity = "1";
+          el.style.visibility = "visible";
+          el.style.transform = "none";
+          if (el.classList.contains("demo-screen")) el.style.position = "relative";
+        });
+        document.querySelectorAll<HTMLElement>(".demo .pii-raw").forEach((r) => (r.style.opacity = "0.18"));
+      }
+
       // ============ telegram msgs em sequência ============
       if (!reduce) {
         const msgs = gsap.utils.toArray<HTMLElement>("[data-tg]");

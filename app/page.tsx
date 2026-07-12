@@ -1,6 +1,6 @@
 import { Nav } from "@/components/nav";
 import { StickyCta } from "@/components/sticky-cta";
-import { FluxStage } from "@/lib/scene/flux-stage";
+import { DemoScrub } from "@/components/demo-scrub";
 import { Hero } from "@/components/hero";
 import { TrustBar } from "@/components/trust-bar";
 import { Wound } from "@/components/wound";
@@ -21,7 +21,6 @@ export default function Home() {
   return (
     <>
       <div className="world-bg" aria-hidden="true" />
-      <FluxStage />
       <div className="progress" aria-hidden="true">
         <i />
       </div>
@@ -30,6 +29,7 @@ export default function Home() {
 
       {/* Funil: promessa → dor → produto → prova/segurança → valor → planos → ação */}
       <Hero />
+      <DemoScrub />
       <TrustBar />
       <Wound />
       <Suite />

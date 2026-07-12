@@ -2,17 +2,17 @@ import { Nav } from "@/components/nav";
 import { StickyCta } from "@/components/sticky-cta";
 import { FluxStage } from "@/lib/scene/flux-stage";
 import { Hero } from "@/components/hero";
-import { PrivacyAct } from "@/components/privacy-act";
-import { Telemetry } from "@/components/telemetry";
 import { TrustBar } from "@/components/trust-bar";
 import { Wound } from "@/components/wound";
+import { Suite } from "@/components/suite";
+import { TriagemSpotlight } from "@/components/triagem-spotlight";
+import { Telemetry } from "@/components/telemetry";
+import { PrivacyAct } from "@/components/privacy-act";
+import { Safety } from "@/components/safety";
+import { MidCta } from "@/components/mid-cta";
 import { InvestmentReframe } from "@/components/investment-reframe";
 import { Manifesto } from "@/components/manifesto";
-import { Suite } from "@/components/suite";
-import { MidCta } from "@/components/mid-cta";
-import { TriagemSpotlight } from "@/components/triagem-spotlight";
-import { Safety } from "@/components/safety";
-import { Testimonials } from "@/components/testimonials";
+import { Pricing } from "@/components/pricing";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
@@ -27,18 +27,20 @@ export default function Home() {
       </div>
       <StickyCta />
       <Nav />
+
+      {/* Funil: promessa → dor → produto → prova/segurança → valor → planos → ação */}
       <Hero />
-      <PrivacyAct />
-      <Telemetry />
       <TrustBar />
       <Wound />
+      <Suite />
+      <TriagemSpotlight />
+      <Telemetry />
+      <PrivacyAct />
+      <Safety />
+      <MidCta />
       <InvestmentReframe />
       <Manifesto />
-      <Suite />
-      <MidCta />
-      <TriagemSpotlight />
-      <Safety />
-      <Testimonials />
+      <Pricing />
       <Faq />
       <FinalCta />
       <Footer />

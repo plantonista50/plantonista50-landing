@@ -21,21 +21,21 @@ export function Footer() {
               Plantonista <span className="font-mono text-ink-3 font-medium text-[.74rem] ml-0.5">5.0</span>
             </div>
             <p className="text-ink-3 text-[.92rem] max-w-[280px] mt-3.5 leading-relaxed">
-              ANONM 4.0 + O Selo SuGa. Tudo o que o plantonista precisa, a um clique. Feito por emergencista, para emergencistas.
+              ANONM 4.0 + a SuGa Suite. Seu copiloto de plantão, do raciocínio à passagem. Feito por emergencista, para emergencistas.
             </p>
             <p className="mt-3.5 font-mono text-[.72rem] text-ink-4">Fortaleza, CE · DPO: Andre Yuuzo Sugayama</p>
           </div>
 
           <div>
-            <h4 className="font-mono text-[.7rem] text-accent tracking-[.18em] uppercase mb-3.5 font-bold">O Selo SuGa</h4>
+            <h4 className="font-mono text-[.7rem] text-accent tracking-[.18em] uppercase mb-3.5 font-bold">SuGa Suite</h4>
             {[
-              { href: "#anonm", label: "ANONM 4.0" },
               { href: "#suite", label: "SuGa BRAINSTORM" },
               { href: "#suite", label: "SuGa EXAMINATOR" },
               { href: "#triagem", label: "SuGa TRIAGEM" },
               { href: "#suite", label: "SuGa PRONTUÁRIO" },
               { href: "#suite", label: "SuGa EVIDENCE" },
               { href: "#suite", label: "SuGa I-PASS" },
+              { href: "#seguranca", label: "ANONM 4.0" },
             ].map((l) => (
               <a key={l.label} href={l.href} className="block py-1.5 text-ink-3 text-[.92rem] transition-colors duration-500 ease-power3 hover:text-ink">
                 {l.label}

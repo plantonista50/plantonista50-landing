@@ -18,13 +18,12 @@ type Mod = {
 };
 
 const MODS: Mod[] = [
-  { num: "01", cat: "SAFETY LAYER", icon: "shield_lock", name: "ANONM", bigName: "4.0", tag: "Anonimização nativa", copy: "Remove nome, CPF, telefone, endereço e instituição antes de qualquer IA tocar o texto. O histórico do paciente nunca vira moeda.", id: "anonm" },
-  { num: "02", cat: "RACIOCÍNIO", icon: "neurology", pre: "SuGa", name: "BRAINSTORM", tag: "Segunda opinião com fontes", copy: "A segunda opinião das 3h da manhã. Só literatura de emergência selecionada — e você pode debater com o resultado até a conduta fechar." },
-  { num: "03", cat: "EXAMES", icon: "labs", pre: "SuGa", name: "EXAMINATOR", tag: "Laudos e imagens", copy: "Você cola o laudo, ele devolve o que importa — já protegido, já organizado, pronto para a sua decisão.", freeBadge: true },
-  { num: "04", cat: "TRIAGEM", icon: "monitor_heart", pre: "SuGa", name: "TRIAGEM", tag: "HUD · NEWS2 em tempo real", copy: "O painel que carrega o plantão por você: a piora aparece antes de virar urgência, e o lembrete te encontra no Telegram." },
-  { num: "05", cat: "PRONTUÁRIO", icon: "mic", pre: "SuGa", name: "PRONTUÁRIO", tag: "Escriba clínico anonimizado", copy: "Você fala, ele escreve. O paciente protegido, as suas mãos livres — e a digitação deixa de roubar o seu turno.", freeBadge: true },
-  { num: "06", cat: "EVIDÊNCIA", icon: "menu_book", pre: "SuGa", name: "EVIDENCE", tag: "Aplicação prática · emergência", copy: "O artigo de vinte páginas vira resposta prática: muda a sua conduta ou não muda. Direto, do jeito que o plantão exige." },
-  { num: "07", cat: "PASSAGEM", icon: "swap_horiz", pre: "SuGa", name: "I-PASS", tag: "Handoff automático", copy: "Na troca de turno, ninguém fica para trás: o handoff sai pronto, com a última atualização de cada paciente." },
+  { num: "01", cat: "RACIOCÍNIO", icon: "neurology", pre: "SuGa", name: "BRAINSTORM", tag: "Copiloto de raciocínio clínico", copy: "A dúvida das 3h da manhã. Recebe o caso, mapeia a zona crítica dos diagnósticos que matam, ranqueia hipóteses por risco — e responde com fontes buscadas na hora em SciELO, PubMed e Europe PMC. Você debate até a conduta fechar.", id: "brainstorm" },
+  { num: "02", cat: "EXAMES", icon: "labs", pre: "SuGa", name: "EXAMINATOR", tag: "Exames em formato compacto", copy: "Cola o laudo ou fotografa o exame. Ele roteia lab vs. imagem, extrai com IA de temperatura zero (não inventa) e devolve o que importa: 15/03 · HB 12.5 · GLI 178. PII removida antes da IA. Menos de 10s.", id: "examinator" },
+  { num: "03", cat: "TRIAGEM", icon: "monitor_heart", pre: "SuGa", name: "TRIAGEM", tag: "NEWS2 / SOFA em tempo real", copy: "Extrai sinais vitais e calcula NEWS2 (enfermaria) ou SOFA (UTI), classifica risco ALTO/MODERADO/BAIXO e mapeia os leitos — paciente por número, nunca por nome. A piora aparece antes de virar urgência.", id: "triagem-mod" },
+  { num: "04", cat: "PRONTUÁRIO", icon: "mic", pre: "SuGa", name: "PRONTUÁRIO", tag: "Escriba clínico anonimizado", copy: "Você fala, ele estrutura: HDA, exame físico e conduta no padrão brasileiro, já anonimizado, com os seus templates. A digitação deixa de roubar o turno.", id: "prontuario" },
+  { num: "05", cat: "EVIDÊNCIA", icon: "menu_book", pre: "SuGa", name: "EVIDENCE", tag: "Veredito sobre o artigo", copy: "Um artigo entra, um veredito sai: MUDA A PRÁTICA, PROMISSOR ou NÃO MUDA. Avalia método, amostra, conflitos de interesse, NNT/NNH — e você pergunta o que quiser sobre ele. Só o que está no artigo." },
+  { num: "06", cat: "PASSAGEM", icon: "swap_horiz", pre: "SuGa", name: "I-PASS", tag: "Handoff por gravidade", copy: "No fim do turno o handoff sai pronto pelo protocolo I-PASS, ordenado por gravidade — UTI primeiro, depois enfermaria — para nenhum paciente crítico ser esquecido na troca." },
 ];
 
 export function Suite() {
@@ -32,12 +31,12 @@ export function Suite() {
     <section className="py-24 md:py-36" id="suite">
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div data-reveal data-dir="left" className="mb-9">
-          <Kicker code="REF · 01–07">O Selo SuGa</Kicker>
+          <Kicker code="REF · 01–06">A SuGa Suite</Kicker>
           <h2 className="font-bold text-ink leading-[1.04] mb-4.5" style={{ fontSize: "clamp(2rem, 7vw, 4rem)", letterSpacing: "-.035em" }}>
-            Sete suguinhas. <em className="italic text-accent font-semibold">Um selo.</em>
+            Seis SuGas. <em className="italic text-accent font-semibold">Um plantão inteiro.</em>
           </h2>
           <p className="text-ink-2 max-w-[640px] leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Cada suguinha cobre um momento do plantão. Todos começam pelo ANONM 4.0 — então você usa sem medo, sem precisar de mais uma assinatura.
+            Cada SuGa cobre um momento do plantão — do raciocínio à passagem. Todas rodam sobre o <b className="text-ink">ANONM 4.0</b>, o motor que remove os dados do paciente <em className="text-accent">antes</em> de qualquer IA tocar o texto.
           </p>
         </div>
 

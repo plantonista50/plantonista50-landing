@@ -61,12 +61,12 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              Tudo o que o plantonista precisa, <b className="italic text-accent font-semibold">a um clique.</b>
+              Seu copiloto de plantão. <b className="italic text-accent font-semibold">IA que entende pronto-socorro.</b>
             </span>
           </h2>
 
           <p data-reveal data-dir="up" className="text-ink-2 leading-relaxed mb-8 max-w-[560px]" style={{ fontSize: "1.04rem" }}>
-            O seu paciente protegido, a sua cabeça mais leve — e o turno de volta às suas mãos.
+            Cola o exame, grava a evolução, joga a dúvida — e em menos de 10 segundos recebe a resposta estruturada. O paciente anonimizado <em className="text-accent">antes</em> de qualquer IA. O turno de volta às suas mãos.
           </p>
 
           <div data-reveal data-dir="up" className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
@@ -85,20 +85,16 @@ export function Hero() {
               className="bg-transparent text-ink border border-[color:var(--border)] py-4 px-[22px] rounded-[10px] font-medium text-base inline-flex items-center justify-center gap-2 transition-all duration-500 ease-power3 hover:border-accent hover:text-accent-bright"
               style={{ background: "transparent" }}
             >
-              Conhecer o Selo SuGa
+              Ver a SuGa Suite
             </a>
           </div>
 
           <div data-reveal data-dir="up" className="flex flex-wrap gap-4 md:gap-[18px] mt-6 font-mono text-[.76rem] text-ink-3">
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Sem cartão</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Validação por CRM</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Inteligência já inclusa</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />PII removida antes da IA</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Resposta em &lt;10s</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />LGPD by design</span>
           </div>
         </div>
-
-        {/* O Selo Plantonista (canvas WebGL fixo no <SuguinhosStage/>) é um
-            objeto único centrado, em camada de fundo sob o conteúdo — não
-            precisa reservar área aqui no DOM. */}
       </div>
 
       <div id="scrollCue" className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 font-mono text-ink-3 text-[.66rem] tracking-[.2em] uppercase z-[5]">

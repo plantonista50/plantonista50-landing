@@ -24,9 +24,9 @@ export function Nav() {
         </a>
 
         <div id="navLinks" className="hidden md:flex items-center gap-7">
-          <a href="#suite" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">O Selo</a>
-          <a href="#triagem" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Triagem HUD</a>
-          <a href="#anonm" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">ANONM 4.0</a>
+          <a href="#suite" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">SuGa Suite</a>
+          <a href="#seguranca" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">ANONM 4.0</a>
+          <a href="#planos" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Planos</a>
           <a href="#faq" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Perguntas</a>
           <a
             href="#cta"

@@ -104,7 +104,7 @@ export function Pricing() {
             >
               {p.featured && (
                 <span className="absolute -top-2.5 left-7 font-mono text-[.6rem] font-bold uppercase tracking-[.14em] text-[#06080c] py-1 px-2.5 rounded" style={{ background: "var(--accent)" }}>
-                  Mais escolhido
+                  Recomendado
                 </span>
               )}
               <div className="font-mono text-[.72rem] text-ink-3 tracking-[.14em] uppercase mb-2">{p.name}</div>

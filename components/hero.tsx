@@ -41,9 +41,9 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-extrabold leading-[0.96] tracking-tightest mb-[18px] text-ink" style={{ fontSize: "clamp(2.5rem, 8.6vw, 6rem)" }}>
+          <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
             <span data-reveal data-dir="left" className="block">Cansado de viver de plantão —</span>
-            <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.06em", textShadow: "0 0 40px rgba(34,211,238,.35)" }}>
+            <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(34,211,238,.35)" }}>
               mas quer continuar vivendo dele?
             </span>
           </h1>
@@ -51,7 +51,7 @@ export function Hero() {
           <h2
             data-reveal
             data-dir="up"
-            className="font-semibold leading-[1.25] mb-[22px] text-ink max-w-[560px] flex items-baseline gap-2.5 flex-wrap"
+            className="font-semibold leading-[1.25] mb-4 text-ink max-w-[560px] flex items-baseline gap-2.5 flex-wrap"
             style={{ fontSize: "clamp(1.15rem, 2.4vw, 1.65rem)", letterSpacing: "-.02em" }}
           >
             <span
@@ -65,7 +65,7 @@ export function Hero() {
             </span>
           </h2>
 
-          <p data-reveal data-dir="up" className="text-ink-2 leading-relaxed mb-8 max-w-[560px]" style={{ fontSize: "1.04rem" }}>
+          <p data-reveal data-dir="up" className="text-ink-2 leading-relaxed mb-6 max-w-[560px]" style={{ fontSize: "1.04rem" }}>
             Cola o exame, grava a evolução, joga a dúvida — e em menos de 10 segundos recebe a resposta estruturada. O paciente anonimizado <em className="text-accent">antes</em> de qualquer IA. O turno de volta às suas mãos.
           </p>
 
@@ -93,6 +93,43 @@ export function Hero() {
             <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />PII removida antes da IA</span>
             <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Resposta em &lt;10s</span>
             <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />LGPD by design</span>
+          </div>
+        </div>
+
+        {/* teaser do produto na dobra — versão estática da 1ª cena do demo */}
+        <div data-reveal data-dir="right" className="hidden lg:block relative" aria-hidden="true">
+          <div
+            className="hud relative rounded-2xl overflow-hidden"
+            style={{
+              border: "1px solid var(--border)",
+              background: "linear-gradient(180deg, var(--elev) 0%, var(--surface) 100%)",
+              boxShadow: "0 40px 100px rgba(0,0,0,.55), 0 0 0 1px rgba(34,211,238,.06)",
+              transform: "perspective(1400px) rotateY(-6deg) rotateX(2deg)",
+            }}
+          >
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[color:var(--hairline)]" style={{ background: "rgba(6,8,12,.8)" }}>
+              <span className="flex gap-1.5">
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#f87171" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#fbbf24" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#34d399" }} />
+              </span>
+              <span className="flex-1 text-center font-mono text-[.66rem] text-ink-4">plantonista50.ia.br</span>
+            </div>
+            <div className="p-5">
+              <div className="font-mono text-[.64rem] tracking-[.14em] uppercase text-ink-3 mb-3">
+                <b className="text-accent">SuGa</b> EXAMINATOR · resultado
+              </div>
+              <div className="rounded-lg p-3.5 font-mono text-[.78rem] leading-relaxed" style={{ background: "rgba(6,8,12,.6)", border: "1px solid var(--hairline)" }}>
+                <p className="font-bold text-ink mb-2">15/03: <b className="text-accent">HB</b> 12.5 · <b className="text-accent">GLI</b> 178 · <b className="text-accent">CR</b> 1.4</p>
+                <p className="text-ink-3 text-[.68rem]">
+                  paciente: <span className="py-0.5 px-1.5 rounded" style={{ background: "var(--accent-tint)", color: "var(--accent)", border: "1px solid var(--accent-tint-2)" }}>[anonimizado]</span> · 8.4s · audit #a8f2c1
+                </p>
+              </div>
+              <div className="mt-3 flex items-center justify-between font-mono text-[.62rem] text-ink-4 uppercase tracking-[.12em]">
+                <span>ANONM 4.0 · PII firewall</span>
+                <span className="text-accent">↓ role e veja ao vivo</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

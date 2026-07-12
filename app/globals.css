@@ -142,12 +142,13 @@ img {
 }
 .pii-tag {
   position: absolute;
-  inset: 0;
+  inset: -1px -2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--accent);
-  background: var(--accent-tint);
+  /* fundo OPACO: o texto cru não pode vazar por trás do chip */
+  background: linear-gradient(0deg, var(--accent-tint), var(--accent-tint)), #0b1218;
   border: 1px solid var(--accent-tint-2);
   border-radius: 5px;
   font-weight: 700;
@@ -454,23 +455,6 @@ img {
    MOBILE GUARDS — nada estoura abaixo de 768 px.
    ============================================================ */
 @media (max-width: 767px) {
-  /* O Ato de Privacidade tem 3 cenas absolute-positioned que se
-     animam empilhadas no desktop. Em mobile, viram fluxo normal. */
-  .act .act-pin {
-    flex-direction: column !important;
-    height: auto !important;
-    overflow: visible !important;
-    padding: 56px 16px !important;
-  }
-  .act .scene {
-    position: relative !important;
-    inset: auto !important;
-    opacity: 1 !important;
-    transform: none !important;
-    padding: 40px 4px !important;
-    width: 100%;
-  }
-
   /* Cards/HUDs nunca passam da viewport */
   .hud,
   .news2-hud,

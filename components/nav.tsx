@@ -24,10 +24,10 @@ export function Nav() {
         </a>
 
         <div id="navLinks" className="hidden md:flex items-center gap-7">
-          <a href="#suite" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">SuGa Suite</a>
-          <a href="#seguranca" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">ANONM 4.0</a>
+          <a href="#demo" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Como funciona</a>
+          <a href="#suite" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Ferramentas</a>
+          <a href="#seguranca" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Segurança</a>
           <a href="#planos" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Planos</a>
-          <a href="#faq" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Perguntas</a>
           <a
             href="#cta"
             className="bg-ink text-[#06080c] py-2.5 px-[18px] rounded-lg font-bold text-[.86rem] whitespace-nowrap transition-all duration-500 ease-power3 hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"

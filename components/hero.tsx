@@ -42,9 +42,9 @@ export function Hero() {
           </div>
 
           <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
-            <span data-reveal data-dir="left" className="block">Cansado de viver de plantão —</span>
+            <span data-reveal data-dir="left" className="block">Cole o exame.</span>
             <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(34,211,238,.35)" }}>
-              mas quer continuar vivendo dele?
+              Dez segundos depois: só o que importa.
             </span>
           </h1>
 
@@ -61,12 +61,12 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              Seu copiloto de plantão. <b className="italic text-accent font-semibold">IA que entende pronto-socorro.</b>
+              O copiloto de IA de quem <b className="italic text-accent font-semibold">segura o pronto-socorro.</b>
             </span>
           </h2>
 
           <p data-reveal data-dir="up" className="text-ink-2 leading-relaxed mb-6 max-w-[560px]" style={{ fontSize: "1.04rem" }}>
-            Cola o exame, grava a evolução, joga a dúvida — e em menos de 10 segundos recebe a resposta estruturada. O paciente anonimizado <em className="text-accent">antes</em> de qualquer IA. O turno de volta às suas mãos.
+            Exame vira resumo. Voz vira prontuário. Dúvida vira resposta com fonte. Plantão vira passagem pronta. E o nome do seu paciente é apagado <em className="text-accent">antes</em> de a IA ler a primeira linha — construído por um emergencista que já esteve do seu lado da maca.
           </p>
 
           <div data-reveal data-dir="up" className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
@@ -77,22 +77,22 @@ export function Hero() {
               style={{ letterSpacing: "-.005em", willChange: "transform" }}
             >
               <span className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, transparent 30%, rgba(34,211,238,.55) 50%, transparent 70%)", transform: "translateX(-100%)" }} />
-              <span className="relative z-[1]">Solicitar acesso beta</span>
+              <span className="relative z-[1]">Começar grátis — sem cartão</span>
               <Icon name="arrow_forward" size={18} className="relative z-[1] transition-transform duration-500 ease-power3 group-hover:translate-x-1" />
             </a>
             <a
-              href="#suite"
+              href="#demo"
               className="bg-transparent text-ink border border-[color:var(--border)] py-4 px-[22px] rounded-[10px] font-medium text-base inline-flex items-center justify-center gap-2 transition-all duration-500 ease-power3 hover:border-accent hover:text-accent-bright"
               style={{ background: "transparent" }}
             >
-              Ver a SuGa Suite
+              Ver funcionando ↓
             </a>
           </div>
 
           <div data-reveal data-dir="up" className="flex flex-wrap gap-4 md:gap-[18px] mt-6 font-mono text-[.76rem] text-ink-3">
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />PII removida antes da IA</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Resposta em &lt;10s</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />LGPD by design</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />10 análises grátis por mês</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />A IA nunca vê o nome</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Feito por emergencista</span>
           </div>
         </div>
 

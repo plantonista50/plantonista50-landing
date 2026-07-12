@@ -191,72 +191,6 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         }
       }
 
-      // ============ ATO pinado · "olhar de câmera" stagger 0.2s ============
-      if (!reduce) {
-        const mm = gsap.matchMedia();
-        mm.add("(min-width: 768px)", () => {
-          const scenes = gsap.utils.toArray<HTMLElement>(".act .scene");
-          const kidsOf = (sc: HTMLElement) =>
-            gsap.utils.toArray<HTMLElement>(sc.children);
-
-          scenes.forEach((sc, i) => {
-            gsap.set(sc, { opacity: i === 0 ? 1 : 0, scale: i === 0 ? 1 : 1.04 });
-            gsap.set(kidsOf(sc), { opacity: i === 0 ? 1 : 0, y: i === 0 ? 0 : 34 });
-          });
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: ".act",
-              start: "top top",
-              end: "+=" + scenes.length * 95 + "%",
-              pin: ".act-pin",
-              scrub: 0.9,
-              anticipatePin: 1,
-            },
-          });
-
-          scenes.forEach((sc, i) => {
-            if (i === 0) return;
-            const prev = scenes[i - 1];
-            tl.to(
-              prev,
-              { opacity: 0, scale: 0.97, duration: 1, ease: "power3.inOut" },
-              ">"
-            )
-              .to(
-                kidsOf(prev),
-                { opacity: 0, y: -28, duration: 0.8, ease: "power3.in", stagger: 0.08 },
-                "<"
-              )
-              .to(
-                sc,
-                { opacity: 1, scale: 1, duration: 1.1, ease: "expo.out" },
-                "<0.2"
-              )
-              .to(
-                kidsOf(sc),
-                { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.2 },
-                "<0.1"
-              );
-          });
-        });
-        mm.add("(max-width: 767px)", () => {
-          gsap.utils.toArray<HTMLElement>(".act .scene").forEach((sc) => {
-            sc.style.position = "relative";
-            sc.style.opacity = "1";
-            sc.style.padding = "60px 20px";
-            sc.style.transform = "none";
-          });
-          const pin = document.querySelector<HTMLElement>(".act-pin");
-          if (pin) pin.style.height = "auto";
-        });
-      } else {
-        document.querySelectorAll<HTMLElement>(".act .scene").forEach((sc) => {
-          sc.style.position = "relative";
-          sc.style.opacity = "1";
-        });
-      }
-
       // ============ DEMO pinado · o produto scrubbed como vídeo ============
       // Cada beat usa ease:none dentro de timeline com scrub → o dedo do
       // usuário controla o "frame", como sequência de imagens da Apple.
@@ -270,20 +204,22 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           const linesOf = (s: HTMLElement) => gsap.utils.toArray<HTMLElement>(s.querySelectorAll("[data-line]"));
           const piiOf = (s: HTMLElement) => gsap.utils.toArray<HTMLElement>(s.querySelectorAll("[data-pii]"));
 
-          // estado inicial: só a 1ª tela visível, linhas escondidas
+          // estado inicial: 1ª tela JÁ com o exame colado (nenhum frame morto);
+          // as demais escondidas
           screens.forEach((s, i) => gsap.set(s, { autoAlpha: i === 0 ? 1 : 0 }));
-          screens.forEach((s) => gsap.set(linesOf(s), { autoAlpha: 0, y: 14 }));
+          screens.slice(1).forEach((s) => gsap.set(linesOf(s), { autoAlpha: 0, y: 14 }));
           gsap.set(".demo .pii-tag", { autoAlpha: 0, scale: 0.85 });
           gsap.set(".demo .demo-alert", { scale: 0.96 });
 
           const activate = (i: number) => () =>
             steps.forEach((st, j) => st.classList.toggle("on", j <= i));
+          activate(0)();
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: ".demo",
               start: "top top",
-              end: "+=420%",
+              end: "+=320%",
               pin: ".demo-pin",
               scrub: 1,
               anticipatePin: 1,
@@ -292,21 +228,18 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
           const exam = screens[0], result = screens[1], triagem = screens[2], ipass = screens[3];
 
-          // CENA 1 · linhas do exame "digitam" frame a frame
-          tl.call(activate(0))
-            .to(linesOf(exam), { autoAlpha: 1, y: 0, duration: 1, ease: "none", stagger: 0.5 })
-            .to({}, { duration: 0.6 });
-
-          // CENA 2 · ANONM censura cada PII, uma por uma + barra do firewall
+          // CENA 1→2 · ANONM censura cada PII, uma por uma + barra do firewall
+          // (o exame já está na tela quando o pin engata — a 1ª rolagem
+          // já dispara o momento-assinatura)
           tl.call(activate(1))
-            .to(".demo .demo-fwbar-fill", { scaleX: 1, duration: 3.2, ease: "none" }, "<")
-            .to(piiOf(exam).map((w) => w.querySelector(".pii-raw")), { autoAlpha: 0.18, duration: 0.5, ease: "none", stagger: 0.55 }, "<")
-            .to(piiOf(exam).map((w) => w.querySelector(".pii-tag")), { autoAlpha: 1, scale: 1, duration: 0.5, ease: "none", stagger: 0.55 }, "<0.15")
-            .to({}, { duration: 0.6 });
+            .to(".demo .demo-fwbar-fill", { scaleX: 1, duration: 2.6, ease: "none" }, "<")
+            .to(piiOf(exam).map((w) => w.querySelector(".pii-raw")), { autoAlpha: 0, duration: 0.5, ease: "none", stagger: 0.5 }, "<")
+            .to(piiOf(exam).map((w) => w.querySelector(".pii-tag")), { autoAlpha: 1, scale: 1, duration: 0.5, ease: "none", stagger: 0.5 }, "<0.1")
+            .to({}, { duration: 0.5 });
 
           // troca de tela: exam → result
           tl.to(exam, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
-            .to(result, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+            .to(result, { autoAlpha: 1, duration: 0.6, ease: "none" }, ">");
 
           // CENA 3 · resultado compacto
           tl.call(activate(2))
@@ -315,7 +248,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
           // troca: result → triagem
           tl.to(result, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
-            .to(triagem, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+            .to(triagem, { autoAlpha: 1, duration: 0.6, ease: "none" }, ">");
 
           // CENA 4 · leitos pipocam, alerta por último com ênfase
           tl.call(activate(3))
@@ -325,7 +258,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
           // troca: triagem → ipass
           tl.to(triagem, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power2.in" })
-            .to(ipass, { autoAlpha: 1, duration: 0.6, ease: "none" }, "<0.4");
+            .to(ipass, { autoAlpha: 1, duration: 0.6, ease: "none" }, ">");
 
           // CENA 5 · handoff por gravidade
           tl.call(activate(4))

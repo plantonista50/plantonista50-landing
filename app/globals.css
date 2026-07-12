@@ -97,88 +97,93 @@ img {
   );
 }
 
-/* ============= palco de "O Fluxo" (WebGL fixo) ============= */
-.scene-stage {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  will-change: opacity;
-  contain: strict;
-}
-
-/* HUD: nomeia a etapa atual do pipeline conforme as lâminas abrem */
-.scene-hud {
-  position: fixed;
-  left: 50%;
-  bottom: 30px;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 15px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: rgba(8, 11, 17, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-family: var(--font-jetbrains, "JetBrains Mono"), ui-monospace, monospace;
-  opacity: 0;
-  will-change: opacity;
-  z-index: 6;
-}
-.scene-hud-idx {
-  color: var(--accent-bright);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-.scene-hud-sep {
-  width: 1px;
-  height: 12px;
-  background: var(--border);
-}
-.scene-hud-label {
-  color: var(--ink-2);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  min-width: 116px;
-}
-.scene-hud-track {
+/* ============= DEMO scrubbed · o produto como vídeo de scroll ============= */
+.demo-pin {
   position: relative;
-  width: 64px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--border);
-  overflow: hidden;
 }
-.scene-hud-bar {
+.demo-stage {
+  padding: 22px;
+}
+.demo-screen {
   position: absolute;
   inset: 0;
-  display: block;
-  transform-origin: left;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, var(--accent-deep), var(--accent-bright));
+  padding: 22px;
+  visibility: hidden;
+  opacity: 0;
 }
-.scene-hud-tag {
-  color: var(--ink-4);
-  font-size: 0.64rem;
-  letter-spacing: 0.16em;
+.demo-screen:first-child {
+  visibility: visible;
+  opacity: 1;
 }
-@media (max-width: 640px) {
-  .scene-hud {
-    bottom: 78px;
-    gap: 9px;
-    padding: 7px 12px;
+@media (max-width: 767px) {
+  .demo-stage {
+    min-height: 0 !important;
+    padding: 0;
   }
-  .scene-hud-label {
-    min-width: 96px;
-    font-size: 0.64rem;
+  .demo-screen {
+    position: relative;
+    padding: 18px;
+    border-top: 1px solid var(--hairline);
   }
-  .scene-hud-track {
-    display: none;
+  .demo-screen:first-child {
+    border-top: 0;
   }
+}
+
+/* censura de PII: o cru risca e apaga, o chip entra por cima */
+.pii-wrap {
+  position: relative;
+  display: inline-block;
+}
+.pii-raw {
+  color: #fca5a5;
+  text-decoration: line-through;
+  text-decoration-color: rgba(248, 113, 133, 0.6);
+}
+.pii-tag {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-tint-2);
+  border-radius: 5px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* rail de etapas */
+.demo-step {
+  transition: opacity 0.5s var(--ease-power3, cubic-bezier(0.215, 0.61, 0.355, 1));
+  opacity: 0.45;
+}
+.demo-step.on {
+  opacity: 1;
+}
+.demo-step.on .demo-step-num {
+  color: var(--accent);
+  border-color: var(--accent-tint-2);
+  background: var(--accent-tint);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+.demo-step.on .demo-step-label {
+  color: var(--ink);
+}
+
+/* leito em alerta pulsa de leve */
+.demo-bed-alto {
+  animation: bedPulse 2.2s ease-in-out infinite;
+}
+@keyframes bedPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248, 113, 133, 0); }
+  50% { box-shadow: 0 0 18px 0 rgba(248, 113, 133, 0.25); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-bed-alto { animation: none; }
 }
 
 /* progresso */

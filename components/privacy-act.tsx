@@ -2,10 +2,18 @@
 
 import { HudBrackets } from "@/lib/hud-brackets";
 
+/**
+ * PrivacyAct — o ato de privacidade, agora em fluxo normal.
+ * A versão anterior era uma seção PINADA com cenas position:absolute;
+ * dois pins na mesma página (com o DemoScrub) quebravam o layout —
+ * cenas vazando sobre outras seções e viewport preta no slot do pin.
+ * Root cause resolvido: sem pin, três batidas empilhadas com reveal.
+ */
+
 function SceneTag({ red, children }: { red?: boolean; children: React.ReactNode }) {
   return (
     <div
-      className={`font-mono text-[.7rem] font-semibold tracking-[.2em] uppercase mb-6 inline-flex items-center gap-2 ${red ? "text-critical" : "text-accent"}`}
+      className={`font-mono text-[.7rem] font-semibold tracking-[.2em] uppercase mb-5 inline-flex items-center gap-2 ${red ? "text-critical" : "text-accent"}`}
     >
       <span className={`w-6 h-px ${red ? "bg-critical" : "bg-accent"} opacity-60`} />
       <span>{children}</span>
@@ -16,18 +24,18 @@ function SceneTag({ red, children }: { red?: boolean; children: React.ReactNode 
 
 export function PrivacyAct() {
   return (
-    <section className="act relative bg-bg" id="ato">
-      <div className="act-pin h-screen flex items-center justify-center text-center px-5 py-20 relative overflow-hidden">
-        <span
-          className="glow"
-          aria-hidden="true"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 1200, height: 600 }}
-        />
+    <section className="relative bg-bg py-24 md:py-36 overflow-hidden" id="ato">
+      <span
+        className="glow"
+        aria-hidden="true"
+        style={{ top: "40%", left: "50%", transform: "translate(-50%, -50%)", width: 1200, height: 600 }}
+      />
 
-        {/* cena 1 */}
-        <div className="scene absolute inset-0 flex flex-col items-center justify-center px-5 py-20 opacity-0">
+      <div className="max-w-page mx-auto px-5 relative z-[3] text-center flex flex-col items-center gap-20 md:gap-28">
+        {/* batida 1 · a pergunta */}
+        <div data-reveal data-dir="up" className="max-w-[1000px]">
           <SceneTag red>A pergunta que ninguém faz</SceneTag>
-          <h2 className="font-extrabold leading-[.96] text-ink mb-[22px] max-w-[1100px]" style={{ fontSize: "clamp(2rem, 8vw, 6rem)", letterSpacing: "-.05em" }}>
+          <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
             Para onde vai o histórico{" "}
             <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(248,113,113,.4)" }}>
               do seu paciente?
@@ -38,10 +46,10 @@ export function PrivacyAct() {
           </p>
         </div>
 
-        {/* cena 2 */}
-        <div className="scene absolute inset-0 flex flex-col items-center justify-center px-5 py-20 opacity-0">
+        {/* batida 2 · a ameaça */}
+        <div data-reveal data-dir="up" className="max-w-[1000px]">
           <SceneTag red>O destino invisível</SceneTag>
-          <h2 className="font-extrabold leading-[.96] text-ink mb-[22px] max-w-[1100px]" style={{ fontSize: "clamp(2rem, 8vw, 6rem)", letterSpacing: "-.05em" }}>
+          <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
             Servidores internacionais.{" "}
             <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(248,113,113,.4)" }}>
               Mercados que pagam bem.
@@ -59,10 +67,10 @@ export function PrivacyAct() {
           </div>
         </div>
 
-        {/* cena 3 */}
-        <div className="scene absolute inset-0 flex flex-col items-center justify-center px-5 py-20 opacity-0">
+        {/* batida 3 · o escudo */}
+        <div data-reveal data-dir="up" className="max-w-[1000px] flex flex-col items-center">
           <SceneTag>ANONM 4.0 · O escudo</SceneTag>
-          <h2 className="font-extrabold leading-[.96] text-ink mb-[22px] max-w-[1100px]" style={{ fontSize: "clamp(2rem, 8vw, 6rem)", letterSpacing: "-.05em" }}>
+          <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
             Aqui, a IA{" "}
             <em className="italic font-bold text-accent" style={{ textShadow: "0 0 40px var(--accent-glow)" }}>
               nunca vê o nome.

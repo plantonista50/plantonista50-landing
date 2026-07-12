@@ -18,7 +18,7 @@ export function Wound() {
             Atender é metade do plantão. <em className="italic text-accent font-semibold">A outra metade te consome.</em>
           </h2>
           <p className="text-ink-2 max-w-[640px] mb-12 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Além do paciente, o plantonista carrega a papelada burocrática inteira: prontuário, receita, atestado, passagem. O Plantonista 5.0 existe para aliviar essa carga cognitiva — e devolver sua atenção para quem precisa dela.
+            Você não estudou uma década para digitar. Mas a cada turno são dezenas de laudos para decifrar, evoluções para escrever, leitos para vigiar e uma passagem para não esquecer — tudo disputando a mesma cabeça que decide vidas. É essa metade do plantão que o Plantonista 5.0 carrega por você.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

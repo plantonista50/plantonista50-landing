@@ -84,9 +84,9 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       // ============ direção de entrada ============
       const fromFor = (el: HTMLElement) => {
         const dir = el.dataset.dir || "up";
-        if (dir === "left") return { x: -48, y: 0 };
-        if (dir === "right") return { x: 48, y: 0 };
-        return { x: 0, y: 44 };
+        if (dir === "left") return { x: -30, y: 0 };
+        if (dir === "right") return { x: 30, y: 0 };
+        return { x: 0, y: 28 };
       };
 
       // ============ HERO · cascata ============
@@ -98,8 +98,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           tl.fromTo(
             el,
             { opacity: 0, x: f.x, y: f.y },
-            { opacity: 1, x: 0, y: 0, duration: 1.3, ease: "expo.out" },
-            "<0.14"
+            { opacity: 1, x: 0, y: 0, duration: 0.9, ease: "power3.out" },
+            "<0.08"
           );
         });
       }
@@ -116,9 +116,9 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
               opacity: 1,
               x: 0,
               y: 0,
-              duration: 1.4,
-              ease: "expo.out",
-              scrollTrigger: { trigger: el, start: "top 88%", once: true },
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: { trigger: el, start: "top 86%", once: true },
             }
           );
         });

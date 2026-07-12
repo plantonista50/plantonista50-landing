@@ -9,7 +9,7 @@ const ITEMS = [
   },
   {
     q: "É realmente seguro pela LGPD?",
-    a: <>Sim — por desenho. O <b className="text-ink">ANONM 4.0</b> remove os identificadores do paciente no servidor <b className="text-ink">antes</b> de qualquer análise. Cada remoção fica registrada para auditoria. A conversa tem prazo de validade e é apagada automaticamente. Nenhum dado pessoal é guardado, nem trafega para servidores que não pactuam com a LGPD.</>,
+    a: <>Segurança por desenho. O <b className="text-ink">ANONM 4.0</b> remove 28 padrões de identificadores <b className="text-ink">antes</b> de o texto chegar à IA — a LLM nunca recebe dado pessoal. Cada remoção fica registrada para auditoria, o texto bruto não é persistido, o áudio é apagado assim que vira texto, e a conversa expira sozinha em 15h. Base legal: Art. 11 da LGPD (dados sensíveis de saúde).</>,
   },
   {
     q: "Como funcionam os lembretes no Telegram?",
@@ -24,8 +24,8 @@ const ITEMS = [
     a: <>Médicos com CRM ativo no Brasil. O cadastro valida o CRM no momento do registro. Foco principal: plantonistas de pronto-socorro, intensivistas e residentes de emergência.</>,
   },
   {
-    q: "Quanto vai custar depois do beta?",
-    a: <>No beta clínico é gratuito para médicos com CRM ativo. O modelo final será assinatura mensal acessível — pensada para caber na vida real de quem vive de plantão.</>,
+    q: "Quanto custa?",
+    a: <>Tem plano <b className="text-ink">grátis</b> (10 análises/mês, sem cartão). O <b className="text-ink">Plantonista</b> sai por R$ 49,90/mês com análises ilimitadas e as 6 SuGas, e o <b className="text-ink">Pro</b> por R$ 89,90/mês. Hospitais têm plano institucional sob consulta. A anonimização ANONM 4.0 entra em todos.</>,
   },
   {
     q: "Integra com o prontuário do hospital?",

@@ -3,7 +3,7 @@
 const ITEMS: { value: string; label: string; target?: number; prefix?: string; suffix?: string }[] = [
   { value: "< 10s", label: "do exame ao parecer", target: 10, prefix: "< ", suffix: "s" },
   { value: "28", label: "dados sensíveis removidos", target: 28 },
-  { value: "7", label: "ferramentas a um clique", target: 7 },
+  { value: "6", label: "SuGas num clique", target: 6 },
   { value: "15h", label: "e a conversa some", target: 15, suffix: "h" },
 ];
 

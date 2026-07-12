@@ -24,7 +24,7 @@ export function FinalCta() {
           com um <em className="italic font-bold text-accent" style={{ textShadow: "0 0 40px var(--accent-glow)" }}>copiloto.</em>
         </h2>
         <p className="text-ink-2 max-w-[560px] mx-auto mb-9 leading-relaxed" style={{ fontSize: "1.1rem" }}>
-          Você passa metade da vida lá dentro. Que ela seja mais leve. Cadastro em trinta segundos, validação por CRM.
+          Metade da sua vida acontece lá dentro. O Plantonista 5.0 devolve a parte que a burocracia tomou — a partir do próximo turno, de graça.
         </p>
         <a
           href="/"
@@ -32,11 +32,11 @@ export function FinalCta() {
           className="btn-primary group relative overflow-hidden bg-ink text-[#06080c] py-4 md:py-[18px] px-7 md:px-8 rounded-[10px] font-bold inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
           style={{ fontSize: "1.04rem", letterSpacing: "-.005em", willChange: "transform" }}
         >
-          <span className="relative z-[1]">Solicitar acesso beta</span>
+          <span className="relative z-[1]">Entrar no beta — grátis</span>
           <Icon name="arrow_forward" size={18} className="relative z-[1] transition-transform duration-500 ease-power3 group-hover:translate-x-1" />
         </a>
         <div className="flex justify-center gap-5 flex-wrap mt-7 font-mono">
-          {["Sem cartão", "Inteligência já inclusa", "Validação por CRM", "Conforme LGPD"].map((t) => (
+          {["Sem cartão", "10 análises grátis/mês", "Exclusivo para médicos", "A IA nunca vê o nome"].map((t) => (
             <span key={t} className="inline-flex items-center gap-2 text-[.84rem] text-ink-2">
               <Icon name="check_circle" size={16} className="text-accent" />
               {t}

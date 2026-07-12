@@ -49,18 +49,26 @@ const IPASS = [
 export function DemoScrub() {
   return (
     <section className="demo" id="demo">
-      <div className="demo-pin min-h-screen flex items-center justify-center px-4 py-16 md:py-0">
+      <div className="demo-pin min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-10">
+        {/* o enquadramento: o visitante precisa saber O QUE vai ver */}
+        <div className="max-w-page mx-auto w-full relative z-[3] mb-6 md:mb-8 text-center lg:text-left">
+          <div className="font-mono text-[.68rem] text-accent tracking-[.2em] uppercase mb-2">Como funciona · continue rolando</div>
+          <h2 className="font-bold text-ink leading-[1.05] m-0" style={{ fontSize: "clamp(1.5rem, 3.6vw, 2.5rem)", letterSpacing: "-.03em" }}>
+            Um plantão de 12 horas. <em className="italic text-accent font-semibold">Trinta segundos de scroll.</em>
+          </h2>
+          <p className="text-ink-3 mt-2 m-0 text-[.95rem]">Isto não é um vídeo — é o produto. O seu scroll comanda cada passo.</p>
+        </div>
+
         <div className="max-w-page mx-auto w-full grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8 lg:gap-12 items-center relative z-[3]">
 
-          {/* rail de etapas — acende conforme o scroll avança */}
+          {/* rail de etapas — a história da noite, acende conforme o scroll */}
           <div className="demo-rail hidden lg:flex flex-col gap-1.5">
-            <span className="font-mono text-[.66rem] text-ink-4 tracking-[.2em] uppercase mb-3">O plantão em 5 cenas · role</span>
             {[
-              ["01", "Colar o exame"],
-              ["02", "ANONM censura"],
-              ["03", "Resultado <10s"],
-              ["04", "Triagem NEWS2"],
-              ["05", "Passar o plantão"],
+              ["01", "Você cola o exame"],
+              ["02", "O nome do paciente some"],
+              ["03", "O essencial, em 8 segundos"],
+              ["04", "A piora avisa antes"],
+              ["05", "O plantão passa limpo"],
             ].map(([n, t], i) => (
               <div key={n} className="demo-step flex items-center gap-3 py-2" data-step={i}>
                 <span className="demo-step-num font-mono text-[.7rem] font-bold w-7 h-7 rounded-md flex items-center justify-center border border-[color:var(--border)] text-ink-4">{n}</span>
@@ -83,7 +91,7 @@ export function DemoScrub() {
             </div>
 
             {/* palco das telas */}
-            <div className="demo-stage relative" style={{ minHeight: "min(58vh, 520px)" }}>
+            <div className="demo-stage relative" style={{ minHeight: "min(52vh, 480px)" }}>
 
               {/* CENA 1+2 · EXAMINATOR → ANONM (mesma tela, a censura acontece nela) */}
               <div className="demo-screen" data-screen="exam">

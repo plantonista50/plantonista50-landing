@@ -31,12 +31,12 @@ export function Suite() {
     <section className="py-24 md:py-36" id="suite">
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div data-reveal data-dir="left" className="mb-9">
-          <Kicker code="REF · 01–06">A SuGa Suite</Kicker>
+          <Kicker code="O QUE VOCÊ RECEBE">Seis ferramentas</Kicker>
           <h2 className="font-bold text-ink leading-[1.04] mb-4.5" style={{ fontSize: "clamp(2rem, 7vw, 4rem)", letterSpacing: "-.035em" }}>
-            Seis SuGas. <em className="italic text-accent font-semibold">Um plantão inteiro.</em>
+            Uma ferramenta para <em className="italic text-accent font-semibold">cada hora difícil.</em>
           </h2>
           <p className="text-ink-2 max-w-[640px] leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Cada SuGa cobre um momento do plantão — do raciocínio à passagem. Todas rodam sobre o <b className="text-ink">ANONM 4.0</b>, o motor que remove os dados do paciente <em className="text-accent">antes</em> de qualquer IA tocar o texto.
+            Nós as chamamos de <b className="text-ink">SuGas</b> — soluções garantidas. Cada uma nasceu de um aperto real: a dúvida das 3h, o laudo interminável, o leito que piora em silêncio, a passagem corrida. Todas rodam sobre o <b className="text-ink">ANONM 4.0</b>, o motor que apaga a identidade do paciente <em className="text-accent">antes</em> de qualquer IA ler.
           </p>
         </div>
 

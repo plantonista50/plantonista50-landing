@@ -10,7 +10,7 @@ export function StickyCta() {
     >
       <a
         href="#cta"
-        className="flex items-center justify-center gap-2 bg-ink text-[#06080c] px-5 py-3.5 rounded-xl font-bold text-[.96rem]"
+        className="flex items-center justify-center gap-2 bg-ink text-[#101114] px-5 py-3.5 rounded-xl font-bold text-[.96rem]"
         style={{ boxShadow: "0 14px 32px rgba(0,0,0,.6), 0 0 0 1px var(--accent-tint-2)" }}
       >
         Solicitar acesso

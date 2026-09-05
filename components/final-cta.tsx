@@ -29,7 +29,7 @@ export function FinalCta() {
         <a
           href="/"
           data-magnetic
-          className="btn-primary group relative overflow-hidden bg-ink text-[#06080c] py-4 md:py-[18px] px-7 md:px-8 rounded-[10px] font-bold inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
+          className="btn-primary group relative overflow-hidden bg-ink text-[#101114] py-4 md:py-[18px] px-7 md:px-8 rounded-[10px] font-bold inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
           style={{ fontSize: "1.04rem", letterSpacing: "-.005em", willChange: "transform" }}
         >
           <span className="relative z-[1]">Entrar no beta — grátis</span>

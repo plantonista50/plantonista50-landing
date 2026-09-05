@@ -5,9 +5,9 @@ import { HudBrackets } from "@/lib/hud-brackets";
 import { Kicker } from "@/lib/kicker";
 
 const BEDS = [
-  { num: "Leito 3", name: "M, 67a · dispneia", points: "0,14 12,13 24,12 36,10 48,7 60,5 72,3", stroke: "#f87171", score: "NEWS2 · 7", scoreClass: "bg-[color:var(--critical-soft)] text-critical border-[rgba(248,113,113,.3)] animate-pulse-orb" },
-  { num: "Leito 7", name: "F, 54a · DPOC", points: "0,10 12,11 24,10 36,9 48,10 60,9 72,9", stroke: "#fbbf24", score: "NEWS2 · 4", scoreClass: "bg-[color:var(--warn-soft)] text-warn border-[rgba(251,191,36,.25)]" },
-  { num: "Leito 12", name: "M, 31a · dor lombar", points: "0,8 12,9 24,10 36,11 48,12 60,13 72,13", stroke: "#34d399", score: "NEWS2 · 1", scoreClass: "bg-[color:var(--ok-soft)] text-ok border-[rgba(52,211,153,.25)]" },
+  { num: "Leito 3", name: "M, 67a · dispneia", points: "0,14 12,13 24,12 36,10 48,7 60,5 72,3", stroke: "#ff5b52", score: "NEWS2 · 7", scoreClass: "bg-[color:var(--critical-soft)] text-critical border-[rgba(255,91,82,.3)] animate-pulse-orb" },
+  { num: "Leito 7", name: "F, 54a · DPOC", points: "0,10 12,11 24,10 36,9 48,10 60,9 72,9", stroke: "#f2a13a", score: "NEWS2 · 4", scoreClass: "bg-[color:var(--warn-soft)] text-warn border-[rgba(242,161,58,.25)]" },
+  { num: "Leito 12", name: "M, 31a · dor lombar", points: "0,8 12,9 24,10 36,11 48,12 60,13 72,13", stroke: "#4caf6b", score: "NEWS2 · 1", scoreClass: "bg-[color:var(--ok-soft)] text-ok border-[rgba(76,175,107,.25)]" },
 ];
 
 export function TriagemSpotlight() {
@@ -84,7 +84,7 @@ export function TriagemSpotlight() {
                     className="w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ background: "linear-gradient(135deg, var(--accent-bright), var(--accent-deep))" }}
                   >
-                    <Icon name="monitor_heart" size={16} style={{ color: "#06080c" }} />
+                    <Icon name="monitor_heart" size={16} style={{ color: "#101114" }} />
                   </span>
                   <div>
                     <b className="text-[.86rem] text-ink block leading-tight">Plantonista 5.0</b>
@@ -99,7 +99,7 @@ export function TriagemSpotlight() {
                   <div
                     key={i}
                     data-tg
-                    className={`border rounded-xl rounded-tl px-3 py-2.5 mb-2.5 text-[.84rem] text-ink-2 leading-snug ${m.alert ? "border-[rgba(248,113,113,.3)] bg-[rgba(248,113,113,.05)]" : "border-[color:var(--border)] bg-[color:var(--surface)]"}`}
+                    className={`border rounded-xl rounded-tl px-3 py-2.5 mb-2.5 text-[.84rem] text-ink-2 leading-snug ${m.alert ? "border-[rgba(255,91,82,.3)] bg-[rgba(255,91,82,.05)]" : "border-[color:var(--border)] bg-[color:var(--surface)]"}`}
                     style={{ willChange: "transform, opacity" }}
                   >
                     {m.content}

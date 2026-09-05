@@ -53,7 +53,7 @@ export function Faq() {
               key={i}
               data-reveal
               data-dir="up"
-              className="faq-item border rounded-xl mb-2.5 overflow-hidden transition-all duration-500 ease-power3 open:border-[rgba(34,211,238,.4)] open:shadow-[0_10px_30px_rgba(0,0,0,.3)]"
+              className="faq-item border rounded-xl mb-2.5 overflow-hidden transition-all duration-500 ease-power3 open:border-[rgba(168,199,250,.4)] open:shadow-[0_10px_30px_rgba(0,0,0,.3)]"
               style={{ background: "var(--surface)", borderColor: "var(--border)" }}
             >
               <summary className="list-none cursor-pointer p-5 font-semibold text-base text-ink flex items-center justify-between gap-3.5">

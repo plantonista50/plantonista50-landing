@@ -9,7 +9,7 @@ const ITEMS: { value: string; label: string; target?: number; prefix?: string; s
 
 export function TrustBar() {
   return (
-    <section className="py-12 border-y border-[color:var(--hairline)]" style={{ background: "linear-gradient(180deg, transparent, rgba(34,211,238,.03), transparent)" }}>
+    <section className="py-12 border-y border-[color:var(--hairline)]" style={{ background: "linear-gradient(180deg, transparent, rgba(168,199,250,.03), transparent)" }}>
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-7 md:gap-10">
           {ITEMS.map((item, i) => (

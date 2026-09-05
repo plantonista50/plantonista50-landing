@@ -20,7 +20,7 @@ export function MidCta() {
         <a
           href="#cta"
           data-magnetic
-          className="btn-primary group relative overflow-hidden bg-ink text-[#06080c] py-4 px-7 rounded-[10px] font-bold text-base inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
+          className="btn-primary group relative overflow-hidden bg-ink text-[#101114] py-4 px-7 rounded-[10px] font-bold text-base inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
           style={{ letterSpacing: "-.005em", willChange: "transform" }}
         >
           <span className="relative z-[1]">Começar grátis agora</span>

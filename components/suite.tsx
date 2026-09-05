@@ -48,7 +48,7 @@ export function Suite() {
               data-reveal
               data-dir="up"
               data-tilt
-              className="mod hud relative p-7 rounded-2xl overflow-hidden transition-all duration-500 ease-power3 hover:border-[rgba(34,211,238,.3)] hover:shadow-[0_30px_60px_rgba(0,0,0,.55),0_0_0_1px_var(--accent-tint)]"
+              className="mod hud relative p-7 rounded-2xl overflow-hidden transition-all duration-500 ease-power3 hover:border-[rgba(168,199,250,.3)] hover:shadow-[0_30px_60px_rgba(0,0,0,.55),0_0_0_1px_var(--accent-tint)]"
               style={{
                 border: "1px solid var(--border)",
                 background: "linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%)",
@@ -77,7 +77,7 @@ export function Suite() {
               {m.freeBadge && (
                 <span
                   className="inline-flex items-center gap-1.5 mt-3 font-mono text-[.66rem] font-bold text-ok py-1 px-2.5 rounded uppercase tracking-[.08em]"
-                  style={{ background: "var(--ok-soft)", border: "1px solid rgba(52,211,153,.25)" }}
+                  style={{ background: "var(--ok-soft)", border: "1px solid rgba(76,175,107,.25)" }}
                 >
                   <Icon name="savings" size={12} />
                   Sem assinatura à parte

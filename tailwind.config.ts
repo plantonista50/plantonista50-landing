@@ -10,29 +10,29 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#06080c",
-          2: "#0c0f15",
+          DEFAULT: "#101114",
+          2: "#17181b",
         },
         surface: {
-          DEFAULT: "#11161f",
-          2: "#181e29",
+          DEFAULT: "#1d1e20",
+          2: "#242528",
         },
-        elev: "#1f2633",
-        border: "#262e3d",
+        elev: "#2a2b2d",
+        border: "#3c4043",
         ink: {
           DEFAULT: "#ffffff",
-          2: "#d8dce5",
-          3: "#959cab",
-          4: "#5a6275",
+          2: "#c8ccd1",
+          3: "#9aa0a6",
+          4: "#70757c",
         },
         accent: {
-          DEFAULT: "#22d3ee",
-          bright: "#67e8f9",
-          deep: "#0891b2",
+          DEFAULT: "#a8c7fa",
+          bright: "#c8dcff",
+          deep: "#0b57d0",
         },
-        ok: "#34d399",
-        warn: "#fbbf24",
-        critical: "#f87171",
+        ok: "#4caf6b",
+        warn: "#f2a13a",
+        critical: "#ff5b52",
       },
       fontFamily: {
         sans: [
@@ -79,10 +79,10 @@ const config: Config = {
           "50%": { opacity: "1" },
         },
         breathe: {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(34,211,238,0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(168,199,250,0)" },
           "50%": {
             boxShadow:
-              "0 0 0 6px rgba(34,211,238,.08),0 0 28px rgba(34,211,238,.18)",
+              "0 0 0 6px rgba(168,199,250,.08),0 0 28px rgba(168,199,250,.18)",
           },
         },
         teleMove: {

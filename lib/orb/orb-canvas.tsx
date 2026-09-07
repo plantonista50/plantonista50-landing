@@ -184,7 +184,7 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
       uAmp: { value: 0.2 },
       uSpeed: { value: 0.55 },
       uBright: { value: 1 },
-      uPix: { value: Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5) * 14 },
+      uPix: { value: Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5) * 8 },
       uCold: { value: COLD },
       uMid: { value: MID },
       uHot: { value: HOT },
@@ -216,9 +216,9 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
       rig.current.position.x = wide ? s.x : 0;
       rig.current.position.y = wide ? 0 : 0.55;
       rig.current.scale.setScalar((wide ? 1 : 0.72) * s.scale);
-      // sentiente: gira devagar e inclina levemente na direção do cursor
-      rig.current.rotation.y = (reduce ? 0 : t * 0.1) + prog.current * 2.2 + mouse.current.x * 0.14;
-      rig.current.rotation.x = (reduce ? 0 : Math.sin(t * 0.23) * 0.05) + mouse.current.y * 0.1;
+      // sentiente: giro contínuo nos dois eixos + inclinação leve na direção do cursor
+      rig.current.rotation.y = (reduce ? 0 : t * 0.14) + prog.current * 2.2 + mouse.current.x * 0.14;
+      rig.current.rotation.x = (reduce ? 0 : t * 0.08 + Math.sin(t * 0.23) * 0.05) + mouse.current.y * 0.1;
     }
     if (core.current) {
       core.current.rotation.y = reduce ? 0 : -t * 0.16;
@@ -269,7 +269,7 @@ export default function OrbCanvas() {
       frameloop={reduce ? "demand" : "always"}
       style={{ width: "100%", height: "100%" }}
     >
-      <SentientOrb reduce={reduce} count={wide ? 5200 : 2400} />
+      <SentientOrb reduce={reduce} count={wide ? 10000 : 4500} />
     </Canvas>
   );
 }

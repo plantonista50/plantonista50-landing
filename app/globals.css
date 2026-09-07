@@ -85,6 +85,23 @@ img {
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
 }
+/* palco do Sentient Orb — atrás de todo conteúdo (z-1), à frente do world-bg (z-0) */
+.orb-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  will-change: opacity;
+  contain: strict;
+}
+/* conteúdo sempre vence o orb: cada seção vira stacking context acima de z-1
+   (o pin do GSAP cria contexto próprio e prenderia o z dos filhos abaixo do orb) */
+body > header,
+body > section,
+body > footer {
+  position: relative;
+  z-index: 2;
+}
 .glow {
   position: absolute;
   border-radius: 50%;

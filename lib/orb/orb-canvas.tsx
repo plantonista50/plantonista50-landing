@@ -41,16 +41,17 @@ function docProgress() {
   return max > 0 ? clamp01(window.scrollY / max) : 0;
 }
 
-/* estados mentais do orb ao longo do scroll: [p, amp, speed, bright, x, scale] */
+/* estados mentais do orb ao longo do scroll: [p, amp, speed, bright, x, scale]
+   speed: ritmo base de oscilação do ruído — mantém-se estável, sem aceleração */
 const STOPS: [number, number, number, number, number, number][] = [
-  [0.0, 0.2, 0.55, 1.0, 1.55, 1.0],   // hero · calmo, atrás do teaser
-  [0.1, 0.52, 1.6, 1.15, 2.1, 0.92],  // demo · pensando forte
-  [0.3, 0.52, 1.6, 1.15, 2.3, 0.85],  // ainda processando
-  [0.34, 0.09, 0.35, 1.4, 2.3, 0.85], // resultado · colapsa em ordem
-  [0.46, 0.28, 0.7, 1.0, 2.5, 0.75],  // meio · presença discreta à direita
-  [0.84, 0.3, 0.7, 1.0, -2.5, 0.75],  // migra da direita para a esquerda com o scroll
-  [0.96, 0.44, 1.15, 1.5, 0.0, 1.05], // CTA final · volta ao centro pulsando
-  [1.0, 0.44, 1.15, 1.5, 0.0, 1.05],
+  [0.0, 0.2, 0.35, 1.0, 1.55, 1.0],   // hero · respiração calma
+  [0.1, 0.52, 0.45, 1.15, 2.1, 0.92],  // demo · pensando, ritmo normal
+  [0.3, 0.52, 0.45, 1.15, 2.3, 0.85],  // ainda processando
+  [0.34, 0.09, 0.25, 1.4, 2.3, 0.85], // resultado · colapsa em ordem
+  [0.46, 0.28, 0.4, 1.0, 2.5, 0.75],  // meio · presença discreta à direita
+  [0.84, 0.3, 0.4, 1.0, -2.5, 0.75],  // migra da direita para a esquerda
+  [0.96, 0.44, 0.5, 1.5, 0.0, 1.05], // CTA final · pulso, ritmo acelerado sutilmente
+  [1.0, 0.44, 0.5, 1.5, 0.0, 1.05],
 ];
 
 function stateAt(p: number) {
@@ -209,7 +210,9 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
     if (mat.current) {
       mat.current.uniforms.uTime.value = t;
       mat.current.uniforms.uAmp.value = s.amp + (reduce ? 0 : Math.sin(t * 0.9) * 0.025);
-      mat.current.uniforms.uSpeed.value = reduce ? 0 : s.speed;
+      // oscilação suave 25% ao longo de 3s (sem aceleração, apenas pulsação)
+      const gentleOscillation = reduce ? 0 : Math.sin((t / 3) * Math.PI * 2) * 0.25;
+      mat.current.uniforms.uSpeed.value = reduce ? 0 : s.speed * (1 + gentleOscillation);
       mat.current.uniforms.uBright.value = s.bright;
     }
     if (rig.current) {

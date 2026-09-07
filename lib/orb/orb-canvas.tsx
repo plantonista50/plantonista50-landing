@@ -3,30 +3,48 @@
 /**
  * OrbCanvas — "a nuvem da IA pensando"
  * --------------------------------------------------------------
- * O objeto-assinatura: um Sentient Orb — esfera de ~5k partículas
+ * O objeto-assinatura: um Sentient Orb — esfera de ~18k partículas
  * (malha neural) deslocadas por ruído simplex em shader, com um
  * núcleo icosaédrico wireframe. Na paleta REAL do app
  * (#0b57d0 → #a8c7fa → #c8dcff sobre #101114).
  *
- * O scroll é o estado mental da IA (keyframes sobre o progresso
- * do documento inteiro):
+ * MOVIMENTO (regras fixas):
+ *   - o campo de ruído avança a ritmo CONSTANTE: a fase é acumulada
+ *     na CPU (phase += dt * RATE) e entregue pronta ao shader. Nunca
+ *     multiplicamos tempo por velocidade no shader — isso faz o campo
+ *     saltar e até andar para trás quando a velocidade muda;
+ *   - a nuvem gira 360° em torno de um eixo que deriva devagar e de
+ *     forma aleatória (quaternion integrado a cada frame, velocidade
+ *     angular constante). Nunca inverte, nunca acelera;
+ *   - o hover do cursor é uma inclinação amortecida num grupo EXTERNO,
+ *     separado do giro — assim é sempre perceptível.
+ *
+ * O scroll muda só a FORMA e a POSIÇÃO (keyframes sobre o progresso
+ * do documento): amplitude do ruído, brilho, x e escala.
  *   hero      → respiração calma (ouvindo)
- *   demo      → agitação (processando a censura/análise)
+ *   demo      → nuvem mais aberta (processando)
  *   resultado → colapsa em ordem (insight)
- *   meio      → presença discreta ao lado do conteúdo
- *   CTA final → pulso quente (pronto para o plantão)
+ *   meio      → migra da direita para a esquerda
+ *   CTA final → volta ao centro, brilho máximo
  *
  * Render-free: progresso lido passivamente no useFrame (zero
  * re-render React). Fail-safe/reduced-motion vivem no stage.
  */
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 const COLD = new THREE.Color("#0b57d0");
 const MID = new THREE.Color("#a8c7fa");
 const HOT = new THREE.Color("#c8dcff");
+
+/* ritmo do campo de ruído (unidades de fase por segundo) — constante */
+const NOISE_RATE = 0.4;
+/* velocidade angular da nuvem (rad/s) — constante, ~1 volta a cada 50s */
+const SPIN_RATE = 0.125;
+/* velocidade angular do núcleo em contraponto (rad/s) */
+const CORE_RATE = 0.18;
 
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -41,17 +59,16 @@ function docProgress() {
   return max > 0 ? clamp01(window.scrollY / max) : 0;
 }
 
-/* estados mentais do orb ao longo do scroll: [p, amp, speed, bright, x, scale]
-   speed: ritmo base de oscilação do ruído — mantém-se estável, sem aceleração */
-const STOPS: [number, number, number, number, number, number][] = [
-  [0.0, 0.2, 0.35, 1.0, 1.55, 1.0],   // hero · respiração calma
-  [0.1, 0.52, 0.45, 1.15, 2.1, 0.92],  // demo · pensando, ritmo normal
-  [0.3, 0.52, 0.45, 1.15, 2.3, 0.85],  // ainda processando
-  [0.34, 0.09, 0.25, 1.4, 2.3, 0.85], // resultado · colapsa em ordem
-  [0.46, 0.28, 0.4, 1.0, 2.5, 0.75],  // meio · presença discreta à direita
-  [0.84, 0.3, 0.4, 1.0, -2.5, 0.75],  // migra da direita para a esquerda
-  [0.96, 0.44, 0.5, 1.5, 0.0, 1.05], // CTA final · pulso, ritmo acelerado sutilmente
-  [1.0, 0.44, 0.5, 1.5, 0.0, 1.05],
+/* forma e posição do orb ao longo do scroll: [p, amp, bright, x, scale] */
+const STOPS: [number, number, number, number, number][] = [
+  [0.0, 0.2, 1.0, 1.55, 1.0],   // hero · respiração calma, atrás do teaser
+  [0.1, 0.52, 1.15, 2.1, 0.92], // demo · nuvem aberta, processando
+  [0.3, 0.52, 1.15, 2.3, 0.85], // ainda processando
+  [0.34, 0.09, 1.4, 2.3, 0.85], // resultado · colapsa em ordem
+  [0.46, 0.28, 1.0, 2.5, 0.75], // meio · presença discreta à direita
+  [0.84, 0.3, 1.0, -2.5, 0.75], // migra da direita para a esquerda
+  [0.96, 0.44, 1.5, 0.0, 1.05], // CTA final · volta ao centro
+  [1.0, 0.44, 1.5, 0.0, 1.05],
 ];
 
 function stateAt(p: number) {
@@ -61,10 +78,9 @@ function stateAt(p: number) {
   const t = clamp01((p - a[0]) / Math.max(1e-5, b[0] - a[0]));
   return {
     amp: lerp(a[1], b[1], t),
-    speed: lerp(a[2], b[2], t),
-    bright: lerp(a[3], b[3], t),
-    x: lerp(a[4], b[4], t),
-    scale: lerp(a[5], b[5], t),
+    bright: lerp(a[2], b[2], t),
+    x: lerp(a[3], b[3], t),
+    scale: lerp(a[4], b[4], t),
   };
 }
 
@@ -118,19 +134,18 @@ float snoise(vec3 v){
 }
 `;
 
+/* uPhase já chega acumulado da CPU — o shader nunca escala tempo */
 const VERT = /* glsl */ `
-uniform float uTime;
+uniform float uPhase;
 uniform float uAmp;
-uniform float uSpeed;
 uniform float uPix;
 attribute float aSeed;
 varying float vGlow;
 ${NOISE}
 void main() {
   vec3 p = position;
-  float t = uTime * uSpeed;
-  float n = snoise(p * 1.7 + t * 0.28) * 0.62
-          + snoise(p * 4.2 - t * 0.19 + aSeed) * 0.38;
+  float n = snoise(p * 1.7 + uPhase * 0.28) * 0.62
+          + snoise(p * 4.2 - uPhase * 0.19 + aSeed) * 0.38;
   float disp = n * uAmp;
   vec3 pos = p * (1.0 + disp);
   vGlow = clamp(abs(n) * 1.35, 0.0, 1.0);
@@ -155,12 +170,26 @@ void main() {
 `;
 
 function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
-  const rig = useRef<THREE.Group>(null!);
+  const tilt = useRef<THREE.Group>(null!); // hover: inclinação amortecida (externo)
+  const spin = useRef<THREE.Group>(null!); // giro 360° em eixo errante (interno)
   const mat = useRef<THREE.ShaderMaterial>(null!);
   const core = useRef<THREE.LineSegments>(null!);
   const prog = useRef(0);
+  const phase = useRef(0);
   const mouse = useRef({ x: 0, y: 0 });
   const { size } = useThree();
+
+  /* fases aleatórias por montagem: cada visita tem um eixo de giro próprio */
+  const seed = useMemo(
+    () => ({
+      a: Math.random() * Math.PI * 2,
+      b: Math.random() * Math.PI * 2,
+      c: Math.random() * Math.PI * 2,
+    }),
+    []
+  );
+  const axis = useMemo(() => new THREE.Vector3(), []);
+  const step = useMemo(() => new THREE.Quaternion(), []);
 
   const { positions, seeds } = useMemo(() => {
     // esfera de Fibonacci: distribuição uniforme, sem polos aglomerados
@@ -181,9 +210,8 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
 
   const uniforms = useMemo(
     () => ({
-      uTime: { value: 0 },
+      uPhase: { value: 0 },
       uAmp: { value: 0.2 },
-      uSpeed: { value: 0.55 },
       uBright: { value: 1 },
       uPix: { value: Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5) * 5 },
       uCold: { value: COLD },
@@ -193,70 +221,90 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
     []
   );
 
-  useMemo(() => {
-    if (typeof window === "undefined") return;
-    window.addEventListener("pointermove", (e) => {
+  useEffect(() => {
+    const onMove = (e: PointerEvent) => {
       mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.current.y = (e.clientY / window.innerHeight) * 2 - 1;
-    }, { passive: true });
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
   }, []);
 
-  useFrame((state) => {
-    const t = reduce ? 12 : state.clock.elapsedTime;
+  useFrame((state, delta) => {
+    const dt = reduce ? 0 : Math.min(delta, 0.05); // trava saltos após aba inativa
+    const t = state.clock.elapsedTime;
     prog.current = lerp(prog.current, docProgress(), 0.07);
     const s = stateAt(prog.current);
     const wide = size.width >= 1024;
 
+    /* campo de ruído: fase acumulada a ritmo constante */
+    phase.current += dt * NOISE_RATE;
     if (mat.current) {
-      mat.current.uniforms.uTime.value = t;
-      mat.current.uniforms.uAmp.value = s.amp + (reduce ? 0 : Math.sin(t * 0.9) * 0.025);
-      // oscilação suave 25% ao longo de 3s (sem aceleração, apenas pulsação)
-      const gentleOscillation = reduce ? 0 : Math.sin((t / 3) * Math.PI * 2) * 0.25;
-      mat.current.uniforms.uSpeed.value = reduce ? 0 : s.speed * (1 + gentleOscillation);
+      mat.current.uniforms.uPhase.value = reduce ? 12 : phase.current;
+      mat.current.uniforms.uAmp.value = s.amp;
       mat.current.uniforms.uBright.value = s.bright;
     }
-    if (rig.current) {
-      rig.current.position.x = wide ? s.x : 0;
-      rig.current.position.y = wide ? 0 : 0.55;
-      rig.current.scale.setScalar((wide ? 1 : 0.72) * s.scale);
-      // sentiente: giro contínuo nos dois eixos + inclinação leve na direção do cursor
-      rig.current.rotation.y = (reduce ? 0 : t * 0.14) + prog.current * 2.2 + mouse.current.x * 0.14;
-      rig.current.rotation.x = (reduce ? 0 : t * 0.08 + Math.sin(t * 0.23) * 0.05) + mouse.current.y * 0.1;
+
+    /* posição e escala vêm só do scroll */
+    if (tilt.current) {
+      tilt.current.position.x = wide ? s.x : 0;
+      tilt.current.position.y = wide ? 0 : 0.55;
+      tilt.current.scale.setScalar((wide ? 1 : 0.72) * s.scale);
+      // hover: inclina na direção do cursor, amortecido — separado do giro
+      tilt.current.rotation.x = lerp(tilt.current.rotation.x, mouse.current.y * 0.3, 0.06);
+      tilt.current.rotation.y = lerp(tilt.current.rotation.y, mouse.current.x * 0.3, 0.06);
     }
+
+    /* giro 360°: eixo errante, velocidade angular constante, nunca inverte */
+    if (spin.current && dt > 0) {
+      axis
+        .set(
+          Math.sin(t * 0.071 + seed.a),
+          Math.sin(t * 0.053 + seed.b) + 0.6, // leve preferência pelo eixo vertical
+          Math.sin(t * 0.089 + seed.c)
+        )
+        .normalize();
+      step.setFromAxisAngle(axis, SPIN_RATE * dt);
+      spin.current.quaternion.premultiply(step);
+    }
+
+    /* núcleo em contraponto, monotônico */
     if (core.current) {
-      core.current.rotation.y = reduce ? 0 : -t * 0.16;
-      core.current.rotation.z = reduce ? 0 : t * 0.07;
+      core.current.rotation.y -= CORE_RATE * dt;
+      core.current.rotation.z += CORE_RATE * 0.45 * dt;
       (core.current.material as THREE.LineBasicMaterial).opacity = 0.1 + s.bright * 0.1;
     }
   });
 
   return (
-    <group ref={rig} position={[1.55, 0, 0]}>
-      <points>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-          <bufferAttribute attach="attributes-aSeed" args={[seeds, 1]} />
-        </bufferGeometry>
-        <shaderMaterial
-          ref={mat}
-          vertexShader={VERT}
-          fragmentShader={FRAG}
-          uniforms={uniforms}
-          transparent
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-        />
-      </points>
-      {/* núcleo neural: icosaedro wireframe girando em contraponto */}
-      <lineSegments ref={core}>
-        <edgesGeometry args={[new THREE.IcosahedronGeometry(0.92, 1)]} />
-        <lineBasicMaterial color={COLD} transparent opacity={0.16} />
-      </lineSegments>
-      {/* brilho central difuso */}
-      <mesh>
-        <sphereGeometry args={[0.5, 24, 16]} />
-        <meshBasicMaterial color={MID} transparent opacity={0.05} />
-      </mesh>
+    <group ref={tilt} position={[1.55, 0, 0]}>
+      <group ref={spin}>
+        <points>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+            <bufferAttribute attach="attributes-aSeed" args={[seeds, 1]} />
+          </bufferGeometry>
+          <shaderMaterial
+            ref={mat}
+            vertexShader={VERT}
+            fragmentShader={FRAG}
+            uniforms={uniforms}
+            transparent
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </points>
+        {/* núcleo neural: icosaedro wireframe girando em contraponto */}
+        <lineSegments ref={core}>
+          <edgesGeometry args={[new THREE.IcosahedronGeometry(0.92, 1)]} />
+          <lineBasicMaterial color={COLD} transparent opacity={0.16} />
+        </lineSegments>
+        {/* brilho central difuso */}
+        <mesh>
+          <sphereGeometry args={[0.5, 24, 16]} />
+          <meshBasicMaterial color={MID} transparent opacity={0.05} />
+        </mesh>
+      </group>
     </group>
   );
 }

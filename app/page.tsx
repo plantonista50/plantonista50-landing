@@ -9,6 +9,8 @@ import { TriagemSpotlight } from "@/components/triagem-spotlight";
 import { Telemetry } from "@/components/telemetry";
 import { PrivacyAct } from "@/components/privacy-act";
 import { Safety } from "@/components/safety";
+import { LgpdCompliance } from "@/components/lgpd-compliance";
+import { SecurityBadges } from "@/components/security-badges";
 import { MidCta } from "@/components/mid-cta";
 import { InvestmentReframe } from "@/components/investment-reframe";
 import { Manifesto } from "@/components/manifesto";
@@ -39,6 +41,8 @@ export default function Home() {
       <Telemetry />
       <PrivacyAct />
       <Safety />
+      <LgpdCompliance />
+      <SecurityBadges />
       <MidCta />
       <InvestmentReframe />
       <Manifesto />

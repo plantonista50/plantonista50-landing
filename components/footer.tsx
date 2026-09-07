@@ -4,7 +4,7 @@ import { Icon } from "@/lib/icon";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[color:var(--hairline)] pt-14 pb-7" style={{ background: "#04060a" }}>
+    <footer className="border-t border-[color:var(--hairline)] pt-14 pb-7" style={{ background: "#0d0e10" }}>
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div className="grid grid-cols-2 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 md:gap-10 mb-9">
           <div>
@@ -16,7 +16,7 @@ export function Footer() {
                   boxShadow: "0 0 0 1px rgba(255,255,255,.12) inset, 0 4px 18px var(--accent-glow)",
                 }}
               >
-                <Icon name="monitor_heart" size={15} style={{ color: "#06080c", position: "relative", zIndex: 1 }} />
+                <Icon name="monitor_heart" size={15} style={{ color: "#101114", position: "relative", zIndex: 1 }} />
               </span>
               Plantonista <span className="font-mono text-ink-3 font-medium text-[.74rem] ml-0.5">5.0</span>
             </div>

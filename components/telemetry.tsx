@@ -14,7 +14,7 @@ export function Telemetry() {
   return (
     <div
       className="telemetry relative overflow-hidden py-3.5 border-y border-[color:var(--hairline)]"
-      style={{ background: "rgba(12,15,21,.6)" }}
+      style={{ background: "rgba(23,24,27,.6)" }}
       aria-hidden="true"
     >
       <span className="absolute inset-y-0 left-0 w-[120px] z-[2] pointer-events-none" style={{ background: "linear-gradient(90deg, var(--bg), transparent)" }} />

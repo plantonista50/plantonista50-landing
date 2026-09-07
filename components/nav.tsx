@@ -4,7 +4,7 @@ import { Icon } from "@/lib/icon";
 
 export function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-[rgba(6,8,12,0.72)] backdrop-blur-[18px] border-b border-[color:var(--hairline)]">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-[rgba(16,17,20,0.72)] backdrop-blur-[18px] border-b border-[color:var(--hairline)]">
       <div className="max-w-page mx-auto px-5 md:px-7 py-3.5 md:py-4 flex items-center justify-between gap-3">
         <a href="#" className="flex items-center gap-2.5 font-bold text-[.95rem] md:text-base tracking-[-.015em]">
           <span
@@ -14,7 +14,7 @@ export function Nav() {
               boxShadow: "0 0 0 1px rgba(255,255,255,.12) inset, 0 4px 18px var(--accent-glow)",
             }}
           >
-            <Icon name="monitor_heart" size={15} style={{ color: "#06080c", position: "relative", zIndex: 1 }} />
+            <Icon name="monitor_heart" size={15} style={{ color: "#101114", position: "relative", zIndex: 1 }} />
             <span
               className="absolute inset-0"
               style={{ background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 60%)" }}
@@ -30,7 +30,7 @@ export function Nav() {
           <a href="#planos" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Planos</a>
           <a
             href="#cta"
-            className="bg-ink text-[#06080c] py-2.5 px-[18px] rounded-lg font-bold text-[.86rem] whitespace-nowrap transition-all duration-500 ease-power3 hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"
+            className="bg-ink text-[#101114] py-2.5 px-[18px] rounded-lg font-bold text-[.86rem] whitespace-nowrap transition-all duration-500 ease-power3 hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"
           >
             Solicitar acesso
           </a>
@@ -55,7 +55,7 @@ export function Nav() {
           top: 60px;
           left: 0;
           right: 0;
-          background: rgba(6, 8, 12, 0.97);
+          background: rgba(16, 17, 20, 0.97);
           backdrop-filter: blur(20px);
           padding: 1.4rem 20px;
           border-bottom: 1px solid var(--hairline);

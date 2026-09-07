@@ -24,11 +24,11 @@ export function Hero() {
         <div>
           <div
             className="inline-flex items-center gap-3 flex-wrap py-2 px-3.5 rounded-full mb-6 font-mono text-[.72rem] text-ink-2"
-            style={{ border: "1px solid var(--border)", background: "rgba(17,22,31,.7)" }}
+            style={{ border: "1px solid var(--border)", background: "rgba(29,30,32,.7)" }}
             data-reveal
             data-dir="up"
           >
-            <span className="inline-flex items-center gap-[7px] before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ok before:shadow-[0_0_8px_rgba(52,211,153,.6)]">
+            <span className="inline-flex items-center gap-[7px] before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ok before:shadow-[0_0_8px_rgba(76,175,107,.6)]">
               <b className="text-ink font-bold">SYS</b> · operacional
             </span>
             <span className="w-px h-3 bg-[color:var(--hairline)]" />
@@ -36,14 +36,14 @@ export function Hero() {
               <b className="text-ink font-bold">BETA</b> · aberto
             </span>
             <span className="w-px h-3 bg-[color:var(--hairline)]" />
-            <span className="inline-flex items-center gap-[7px] before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ok before:shadow-[0_0_8px_rgba(52,211,153,.6)]">
+            <span className="inline-flex items-center gap-[7px] before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ok before:shadow-[0_0_8px_rgba(76,175,107,.6)]">
               <b className="text-ink font-bold">SECURE</b> · LGPD
             </span>
           </div>
 
           <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
             <span data-reveal data-dir="left" className="block">Cole o exame.</span>
-            <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(34,211,238,.35)" }}>
+            <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
               Dez segundos depois: só o que importa.
             </span>
           </h1>
@@ -73,10 +73,10 @@ export function Hero() {
             <a
               href="#cta"
               data-magnetic
-              className="btn-primary group relative overflow-hidden bg-ink text-[#06080c] py-4 px-7 rounded-[10px] font-bold text-base inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
+              className="btn-primary group relative overflow-hidden bg-ink text-[#101114] py-4 px-7 rounded-[10px] font-bold text-base inline-flex items-center justify-center gap-2.5 animate-breathe transition-shadow duration-500 ease-power3"
               style={{ letterSpacing: "-.005em", willChange: "transform" }}
             >
-              <span className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, transparent 30%, rgba(34,211,238,.55) 50%, transparent 70%)", transform: "translateX(-100%)" }} />
+              <span className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, transparent 30%, rgba(168,199,250,.55) 50%, transparent 70%)", transform: "translateX(-100%)" }} />
               <span className="relative z-[1]">Começar grátis — sem cartão</span>
               <Icon name="arrow_forward" size={18} className="relative z-[1] transition-transform duration-500 ease-power3 group-hover:translate-x-1" />
             </a>
@@ -103,15 +103,15 @@ export function Hero() {
             style={{
               border: "1px solid var(--border)",
               background: "linear-gradient(180deg, var(--elev) 0%, var(--surface) 100%)",
-              boxShadow: "0 40px 100px rgba(0,0,0,.55), 0 0 0 1px rgba(34,211,238,.06)",
+              boxShadow: "0 40px 100px rgba(0,0,0,.55), 0 0 0 1px rgba(168,199,250,.06)",
               transform: "perspective(1400px) rotateY(-6deg) rotateX(2deg)",
             }}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[color:var(--hairline)]" style={{ background: "rgba(6,8,12,.8)" }}>
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[color:var(--hairline)]" style={{ background: "rgba(16,17,20,.8)" }}>
               <span className="flex gap-1.5">
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#f87171" }} />
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#fbbf24" }} />
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#34d399" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#ff5b52" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#f2a13a" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#4caf6b" }} />
               </span>
               <span className="flex-1 text-center font-mono text-[.66rem] text-ink-4">plantonista50.ia.br</span>
             </div>
@@ -119,7 +119,7 @@ export function Hero() {
               <div className="font-mono text-[.64rem] tracking-[.14em] uppercase text-ink-3 mb-3">
                 <b className="text-accent">SuGa</b> EXAMINATOR · resultado
               </div>
-              <div className="rounded-lg p-3.5 font-mono text-[.78rem] leading-relaxed" style={{ background: "rgba(6,8,12,.6)", border: "1px solid var(--hairline)" }}>
+              <div className="rounded-lg p-3.5 font-mono text-[.78rem] leading-relaxed" style={{ background: "rgba(16,17,20,.6)", border: "1px solid var(--hairline)" }}>
                 <p className="font-bold text-ink mb-2">15/03: <b className="text-accent">HB</b> 12.5 · <b className="text-accent">GLI</b> 178 · <b className="text-accent">CR</b> 1.4</p>
                 <p className="text-ink-3 text-[.68rem]">
                   paciente: <span className="py-0.5 px-1.5 rounded" style={{ background: "var(--accent-tint)", color: "var(--accent)", border: "1px solid var(--accent-tint-2)" }}>[anonimizado]</span> · 8.4s · audit #a8f2c1

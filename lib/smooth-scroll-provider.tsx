@@ -459,7 +459,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
             parts.forEach((p) => {
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(34,211,238,${p.a})`;
+              ctx.fillStyle = `rgba(168,199,250,${p.a})`;
               ctx.fill();
               p.y += p.vy;
               if (p.y < -10) {

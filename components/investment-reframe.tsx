@@ -33,7 +33,7 @@ export function InvestmentReframe() {
             data-reveal
             data-dir="left"
             className="p-7 rounded-2xl"
-            style={{ border: "1px solid rgba(248,113,113,.25)", background: "var(--surface)" }}
+            style={{ border: "1px solid rgba(255,91,82,.25)", background: "var(--surface)" }}
           >
             <div className="font-mono text-[.7rem] tracking-[.14em] uppercase font-bold mb-3.5 text-critical">O plantão de sempre</div>
             <ul className="grid gap-2.5 list-none">
@@ -54,7 +54,7 @@ export function InvestmentReframe() {
             data-reveal
             data-dir="right"
             className="p-7 rounded-2xl"
-            style={{ border: "1px solid rgba(34,211,238,.35)", background: "linear-gradient(180deg, rgba(34,211,238,.05), var(--surface))" }}
+            style={{ border: "1px solid rgba(168,199,250,.35)", background: "linear-gradient(180deg, rgba(168,199,250,.05), var(--surface))" }}
           >
             <div className="font-mono text-[.7rem] tracking-[.14em] uppercase font-bold mb-3.5 text-accent">O plantão acompanhado</div>
             <ul className="grid gap-2.5 list-none">

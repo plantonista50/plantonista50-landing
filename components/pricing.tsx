@@ -97,13 +97,13 @@ export function Pricing() {
               style={{
                 border: p.featured ? "1px solid var(--accent-tint-2)" : "1px solid var(--border)",
                 background: p.featured
-                  ? "linear-gradient(180deg, rgba(34,211,238,.08) 0%, var(--bg-2) 60%)"
+                  ? "linear-gradient(180deg, rgba(168,199,250,.08) 0%, var(--bg-2) 60%)"
                   : "linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%)",
                 boxShadow: p.featured ? "0 30px 70px rgba(0,0,0,.5), 0 0 0 1px var(--accent-tint)" : "none",
               }}
             >
               {p.featured && (
-                <span className="absolute -top-2.5 left-7 font-mono text-[.6rem] font-bold uppercase tracking-[.14em] text-[#06080c] py-1 px-2.5 rounded" style={{ background: "var(--accent)" }}>
+                <span className="absolute -top-2.5 left-7 font-mono text-[.6rem] font-bold uppercase tracking-[.14em] text-[#101114] py-1 px-2.5 rounded" style={{ background: "var(--accent)" }}>
                   Recomendado
                 </span>
               )}
@@ -126,7 +126,7 @@ export function Pricing() {
                 className={
                   "mt-auto py-3 px-4 rounded-[10px] font-bold text-[.92rem] text-center transition-all duration-500 ease-power3 " +
                   (p.featured
-                    ? "bg-ink text-[#06080c] hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"
+                    ? "bg-ink text-[#101114] hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"
                     : "border border-[color:var(--border)] text-ink hover:border-accent hover:text-accent-bright")
                 }
               >

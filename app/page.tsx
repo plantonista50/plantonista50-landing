@@ -16,11 +16,13 @@ import { Pricing } from "@/components/pricing";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
+import { OrbStage } from "@/lib/orb/orb-stage";
 
 export default function Home() {
   return (
     <>
       <div className="world-bg" aria-hidden="true" />
+      <OrbStage />
       <div className="progress" aria-hidden="true">
         <i />
       </div>

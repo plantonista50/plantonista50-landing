@@ -37,7 +37,7 @@ export function PrivacyAct() {
           <SceneTag red>A pergunta que ninguém faz</SceneTag>
           <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
             Para onde vai o histórico{" "}
-            <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(248,113,113,.4)" }}>
+            <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(255,91,82,.4)" }}>
               do seu paciente?
             </em>
           </h2>
@@ -51,7 +51,7 @@ export function PrivacyAct() {
           <SceneTag red>O destino invisível</SceneTag>
           <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
             Servidores internacionais.{" "}
-            <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(248,113,113,.4)" }}>
+            <em className="italic font-bold text-critical" style={{ textShadow: "0 0 40px rgba(255,91,82,.4)" }}>
               Mercados que pagam bem.
             </em>
           </h2>
@@ -60,7 +60,7 @@ export function PrivacyAct() {
           </p>
           <div className="flex gap-2 flex-wrap justify-center mt-[18px]">
             {["→ servidor fora do Brasil", "→ sem pacto com a LGPD", "→ dados viram produto"].map((t) => (
-              <span key={t} className="font-mono text-[.7rem] py-1 px-2.5 rounded-md tracking-[.04em]" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(248,113,113,.25)" }}>
+              <span key={t} className="font-mono text-[.7rem] py-1 px-2.5 rounded-md tracking-[.04em]" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(255,91,82,.25)" }}>
                 {t}
               </span>
             ))}
@@ -95,7 +95,7 @@ export function PrivacyAct() {
             ].map(([f, pii, clean]) => (
               <div key={f} className="flex items-center gap-3 py-2.5 font-mono text-[.86rem] flex-wrap">
                 <span className="text-ink-3 text-[.72rem] min-w-[88px] tracking-[.04em] uppercase">{f}</span>
-                <span className="line-through py-[3px] px-2.5 rounded-md text-[.82rem]" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(248,113,133,.2)" }}>
+                <span className="line-through py-[3px] px-2.5 rounded-md text-[.82rem]" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(255,91,82,.2)" }}>
                   {pii}
                 </span>
                 <span className="text-ink-4">→</span>

@@ -59,7 +59,7 @@ export function Safety() {
             <HudBrackets />
             <div className="font-mono text-[.7rem] tracking-[.16em] uppercase text-ink-3 mb-4 font-semibold flex justify-between items-center">
               <span><b className="text-accent">ANONM 4.0</b> · antes de qualquer IA tocar</span>
-              <span className="inline-flex items-center gap-1.5 py-[3px] px-2 rounded text-[.62rem] tracking-[.1em]" style={{ background: "var(--ok-soft)", color: "var(--ok)", border: "1px solid rgba(52,211,153,.25)" }}>
+              <span className="inline-flex items-center gap-1.5 py-[3px] px-2 rounded text-[.62rem] tracking-[.1em]" style={{ background: "var(--ok-soft)", color: "var(--ok)", border: "1px solid rgba(76,175,107,.25)" }}>
                 <Icon name="verified" size={11} />
                 SECURED
               </span>
@@ -67,7 +67,7 @@ export function Safety() {
             {ROWS.map(([f, pii, clean]) => (
               <div key={f} className="flex items-center gap-2.5 py-2.5 border-b border-dashed border-[color:var(--hairline)] last:border-b-0 flex-wrap">
                 <span className="font-mono text-ink-3 text-[.74rem] min-w-[80px] tracking-[.04em] uppercase">{f}</span>
-                <span className="line-through py-1 px-2.5 rounded-md text-[.84rem] font-mono" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(248,113,133,.2)" }}>{pii}</span>
+                <span className="line-through py-1 px-2.5 rounded-md text-[.84rem] font-mono" style={{ background: "var(--critical-soft)", color: "var(--critical)", border: "1px solid rgba(255,91,82,.2)" }}>{pii}</span>
                 <span className="text-ink-4">→</span>
                 <span className="font-semibold py-1 px-2.5 rounded-md text-[.82rem] font-mono" style={{ background: "var(--accent-tint)", color: "var(--accent)", border: "1px solid var(--accent-tint-2)" }}>{clean}</span>
               </div>

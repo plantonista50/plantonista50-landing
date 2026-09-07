@@ -78,13 +78,13 @@ export function DemoScrub() {
           </div>
 
           {/* a janela do produto — pinada; as telas trocam por scrub */}
-          <div className="demo-device hud relative rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)", background: "linear-gradient(180deg, var(--elev) 0%, var(--surface) 100%)", boxShadow: "0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(34,211,238,.06)" }}>
+          <div className="demo-device hud relative rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)", background: "linear-gradient(180deg, var(--elev) 0%, var(--surface) 100%)", boxShadow: "0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(168,199,250,.06)" }}>
             {/* chrome do navegador */}
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[color:var(--hairline)]" style={{ background: "rgba(6,8,12,.8)" }}>
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[color:var(--hairline)]" style={{ background: "rgba(16,17,20,.8)" }}>
               <span className="flex gap-1.5">
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#f87171" }} />
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#fbbf24" }} />
-                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#34d399" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#ff5b52" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#f2a13a" }} />
+                <i className="w-2.5 h-2.5 rounded-full block" style={{ background: "#4caf6b" }} />
               </span>
               <span className="flex-1 text-center font-mono text-[.68rem] text-ink-4 tracking-[.06em]">plantonista50.ia.br · <b className="text-accent">plantão noturno</b></span>
               <span className="demo-clock font-mono text-[.68rem] text-ink-4">03:12</span>
@@ -101,7 +101,7 @@ export function DemoScrub() {
                     <Icon name="shield_lock" size={11} className="align-[-2px]" /> PII Firewall
                   </span>
                 </div>
-                <div className="rounded-xl p-4 font-mono text-[.8rem] leading-[1.9] text-ink-2" style={{ background: "rgba(6,8,12,.6)", border: "1px solid var(--hairline)" }}>
+                <div className="rounded-xl p-4 font-mono text-[.8rem] leading-[1.9] text-ink-2" style={{ background: "rgba(16,17,20,.6)", border: "1px solid var(--hairline)" }}>
                   <p data-line>Paciente: <PiiSpan raw="João Carlos da Silva" tag="[paciente]" /> · <PiiSpan raw="CPF 123.456.789-00" tag="[removido]" /></p>
                   <p data-line>Origem: <PiiSpan raw="Hospital São Lucas" tag="[hospital]" /> · Nasc.: <PiiSpan raw="31/03/1962" tag="[data]" /></p>
                   <p data-line>Hemograma 15/03 — Hb 12.5 g/dL · Ht 37% · Leuco 14.200</p>
@@ -121,14 +121,14 @@ export function DemoScrub() {
               <div className="demo-screen" data-screen="result">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-[.68rem] tracking-[.14em] uppercase text-ink-3">AnalysisResult · <b className="text-accent">temperatura zero</b></span>
-                  <span className="font-mono text-[.62rem] py-1 px-2 rounded border" style={{ borderColor: "rgba(52,211,153,.25)", background: "var(--ok-soft)", color: "var(--ok)" }}>8.4s</span>
+                  <span className="font-mono text-[.62rem] py-1 px-2 rounded border" style={{ borderColor: "rgba(76,175,107,.25)", background: "var(--ok-soft)", color: "var(--ok)" }}>8.4s</span>
                 </div>
-                <div className="rounded-xl p-5" style={{ background: "rgba(6,8,12,.6)", border: "1px solid var(--hairline)" }}>
+                <div className="rounded-xl p-5" style={{ background: "rgba(16,17,20,.6)", border: "1px solid var(--hairline)" }}>
                   <p data-line className="font-mono text-[clamp(.9rem,2.4vw,1.25rem)] font-bold text-ink tracking-[-.01em] mb-3">
                     15/03: <b className="text-accent">HB</b> 12.5 · <b className="text-accent">LEUCO</b> 14.2k · <b className="text-accent">GLI</b> 178 · <b className="text-accent">CR</b> 1.4 · <b className="text-accent">TGO</b> 45 · <b className="text-accent">ALB</b> 3.2
                   </p>
                   <p data-line className="flex items-center gap-2 font-mono text-[.74rem] text-ink-3 mb-2">
-                    <Icon name="warning" size={14} style={{ color: "#fbbf24" }} /> MissingItemDetector: sem K+ / Na+ / PCR no material enviado
+                    <Icon name="warning" size={14} style={{ color: "#f2a13a" }} /> MissingItemDetector: sem K+ / Na+ / PCR no material enviado
                   </p>
                   <p data-line className="flex items-center gap-2 font-mono text-[.74rem] text-ink-3">
                     <Icon name="verified" size={14} className="text-accent" /> NumericGuard ok · AuditLog #a8f2c1 · PII: 6 remoções
@@ -141,16 +141,16 @@ export function DemoScrub() {
               <div className="demo-screen" data-screen="triagem">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-[.68rem] tracking-[.14em] uppercase text-ink-3"><b className="text-accent">SuGa</b> TRIAGEM · NEWS2 enfermaria</span>
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[.62rem] text-ink-3"><i className="w-1.5 h-1.5 rounded-full bg-ok inline-block" style={{ boxShadow: "0 0 8px rgba(52,211,153,.6)" }} /> live</span>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[.62rem] text-ink-3"><i className="w-1.5 h-1.5 rounded-full bg-ok inline-block" style={{ boxShadow: "0 0 8px rgba(76,175,107,.6)" }} /> live</span>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
                   {BEDS.map((b) => (
-                    <div key={b.n} data-line className={"demo-bed rounded-lg p-3 border " + (b.level === "alto" ? "demo-bed-alto" : "")} style={{ borderColor: b.level === "alto" ? "rgba(248,113,133,.35)" : "var(--hairline)", background: "rgba(6,8,12,.55)" }}>
+                    <div key={b.n} data-line className={"demo-bed rounded-lg p-3 border " + (b.level === "alto" ? "demo-bed-alto" : "")} style={{ borderColor: b.level === "alto" ? "rgba(255,91,82,.35)" : "var(--hairline)", background: "rgba(16,17,20,.55)" }}>
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-mono text-[.64rem] text-ink-4">LEITO {b.n}</span>
                         <span className="font-mono text-[.62rem] font-bold py-0.5 px-1.5 rounded" style={{
-                          color: b.level === "alto" ? "#f87171" : b.level === "mod" ? "#fbbf24" : "var(--ok)",
-                          background: b.level === "alto" ? "rgba(248,113,133,.12)" : b.level === "mod" ? "rgba(251,191,36,.1)" : "var(--ok-soft)",
+                          color: b.level === "alto" ? "#ff5b52" : b.level === "mod" ? "#f2a13a" : "var(--ok)",
+                          background: b.level === "alto" ? "rgba(255,91,82,.12)" : b.level === "mod" ? "rgba(242,161,58,.1)" : "var(--ok-soft)",
                         }}>N2·{b.news}</span>
                       </div>
                       <div className="text-[.8rem] font-semibold text-ink-2">{b.who}</div>
@@ -158,7 +158,7 @@ export function DemoScrub() {
                     </div>
                   ))}
                 </div>
-                <div data-line className="demo-alert mt-3.5 flex items-center gap-2.5 rounded-lg py-2.5 px-3.5 font-mono text-[.74rem]" style={{ border: "1px solid rgba(248,113,133,.35)", background: "rgba(248,113,133,.08)", color: "#fca5a5" }}>
+                <div data-line className="demo-alert mt-3.5 flex items-center gap-2.5 rounded-lg py-2.5 px-3.5 font-mono text-[.74rem]" style={{ border: "1px solid rgba(255,91,82,.35)", background: "rgba(255,91,82,.08)", color: "#ffb0aa" }}>
                   <Icon name="notifications_active" size={15} />
                   Leito 03: NEWS2 subiu 4 → 6 · reavaliar agora — alerta enviado no Telegram
                 </div>
@@ -172,11 +172,11 @@ export function DemoScrub() {
                 </div>
                 <div className="flex flex-col gap-2.5">
                   {IPASS.map((h) => (
-                    <div key={h.who} data-line className="flex items-start gap-3 rounded-lg p-3.5" style={{ border: "1px solid var(--hairline)", background: "rgba(6,8,12,.55)" }}>
+                    <div key={h.who} data-line className="flex items-start gap-3 rounded-lg p-3.5" style={{ border: "1px solid var(--hairline)", background: "rgba(16,17,20,.55)" }}>
                       <span className="font-mono text-[.62rem] font-bold py-1 px-2 rounded flex-shrink-0" style={{
-                        color: h.sev === "UTI" ? "#f87171" : "var(--accent)",
-                        background: h.sev === "UTI" ? "rgba(248,113,133,.12)" : "var(--accent-tint)",
-                        border: h.sev === "UTI" ? "1px solid rgba(248,113,133,.3)" : "1px solid var(--accent-tint-2)",
+                        color: h.sev === "UTI" ? "#ff5b52" : "var(--accent)",
+                        background: h.sev === "UTI" ? "rgba(255,91,82,.12)" : "var(--accent-tint)",
+                        border: h.sev === "UTI" ? "1px solid rgba(255,91,82,.3)" : "1px solid var(--accent-tint-2)",
                       }}>{h.sev}</span>
                       <div>
                         <div className="font-mono text-[.72rem] text-ink-3 mb-0.5">{h.who}</div>

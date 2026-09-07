@@ -47,9 +47,9 @@ const STOPS: [number, number, number, number, number, number][] = [
   [0.1, 0.52, 1.6, 1.15, 2.1, 0.92],  // demo · pensando forte
   [0.3, 0.52, 1.6, 1.15, 2.3, 0.85],  // ainda processando
   [0.34, 0.09, 0.35, 1.4, 2.3, 0.85], // resultado · colapsa em ordem
-  [0.46, 0.28, 0.7, 1.0, 2.5, 0.75],  // meio · presença discreta
-  [0.84, 0.3, 0.7, 1.0, 2.5, 0.75],
-  [0.96, 0.44, 1.15, 1.5, 0.0, 1.05], // CTA final · pulso central
+  [0.46, 0.28, 0.7, 1.0, 2.5, 0.75],  // meio · presença discreta à direita
+  [0.84, 0.3, 0.7, 1.0, -2.5, 0.75],  // migra da direita para a esquerda com o scroll
+  [0.96, 0.44, 1.15, 1.5, 0.0, 1.05], // CTA final · volta ao centro pulsando
   [1.0, 0.44, 1.15, 1.5, 0.0, 1.05],
 ];
 
@@ -184,7 +184,7 @@ function SentientOrb({ reduce, count }: { reduce: boolean; count: number }) {
       uAmp: { value: 0.2 },
       uSpeed: { value: 0.55 },
       uBright: { value: 1 },
-      uPix: { value: Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5) * 8 },
+      uPix: { value: Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5) * 5 },
       uCold: { value: COLD },
       uMid: { value: MID },
       uHot: { value: HOT },
@@ -269,7 +269,7 @@ export default function OrbCanvas() {
       frameloop={reduce ? "demand" : "always"}
       style={{ width: "100%", height: "100%" }}
     >
-      <SentientOrb reduce={reduce} count={wide ? 10000 : 4500} />
+      <SentientOrb reduce={reduce} count={wide ? 18000 : 8000} />
     </Canvas>
   );
 }

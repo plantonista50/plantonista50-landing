@@ -41,10 +41,10 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
-            <span data-reveal data-dir="left" className="block">Cole o exame.</span>
+          <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5vw, 3.9rem)" }}>
+            <span data-reveal data-dir="left" className="block">Suba o exame. PDF&nbsp;ou&nbsp;Foto.</span>
             <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
-              Dez segundos depois: só o que importa.
+              Seu exame transcrito e protegido pela LGPD.
             </span>
           </h1>
 
@@ -61,7 +61,7 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              O copiloto de IA de quem <b className="italic text-accent font-semibold">segura o pronto-socorro.</b>
+              O ambiente de IA que <b className="italic text-accent font-semibold">todo Emergencista esperava.</b>
             </span>
           </h2>
 

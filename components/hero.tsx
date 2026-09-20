@@ -41,19 +41,19 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-extrabold leading-[1.02] tracking-tightest mb-3 text-ink" style={{ fontSize: "clamp(1.7rem, 3.3vw, 2.65rem)" }}>
+          <h1 className="font-extrabold leading-[1.12] tracking-tightest mb-6 text-ink" style={{ fontSize: "clamp(1.7rem, 3.3vw, 2.65rem)" }}>
             <span data-reveal data-dir="left" className="block">
-              “E se eu pudesse dividir esse caos com alguém?”
+              “E se eu pudesse dividir o caos do plantão com alguém?”
             </span>
-            <span data-reveal data-dir="left" className="block italic font-bold text-accent mt-2" style={{ letterSpacing: "-.045em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
-              Você pode! O Plantonista 5.0 é a resposta.
+            <span data-reveal data-dir="left" className="block italic font-bold text-accent mt-4" style={{ letterSpacing: "-.045em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
+              Você pode! Conheça o Plantonista 5.0
             </span>
           </h1>
 
           <h2
             data-reveal
             data-dir="up"
-            className="font-semibold leading-[1.25] mb-3 text-ink max-w-[600px] flex items-baseline gap-2.5 flex-wrap"
+            className="font-semibold leading-[1.3] mb-4 text-ink max-w-[600px] flex items-baseline gap-2.5 flex-wrap"
             style={{ fontSize: "clamp(1.05rem, 2vw, 1.35rem)", letterSpacing: "-.02em" }}
           >
             <span
@@ -63,19 +63,16 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              O seu Copiloto de IA que <b className="italic text-accent font-semibold">todo Emergencista precisava.</b>
+              O seu Copiloto de IA que <b className="italic text-accent font-semibold">todo Emergencista precisa.</b>
             </span>
           </h2>
 
-          <div data-reveal data-dir="up" className="max-w-[600px] mb-5">
-            <p className="text-ink font-semibold mb-1" style={{ fontSize: ".98rem" }}>
+          <div data-reveal data-dir="up" className="max-w-[600px] mb-6">
+            <p className="text-ink font-semibold mb-1.5" style={{ fontSize: ".98rem" }}>
               O que é o Plantonista 5.0?
             </p>
-            <p className="text-ink-2 leading-[1.55] mb-2.5" style={{ fontSize: ".93rem" }}>
-              Um ambiente que reúne ferramentas de IA, com tudo que você precisa durante o plantão em um só lugar e com apenas uma única assinatura: transcreve exames, cria prontuários, organiza os pacientes em um dashboard, monta a passagem de plantão, e ainda faz um “brainstorm” baseado em evidências.
-            </p>
-            <p className="text-ink-2 leading-[1.55]" style={{ fontSize: ".93rem" }}>
-              Foi construído desde o primeiro dia sob o princípio de <em className="text-accent">“privacy by design”</em>: as informações sensíveis do seu paciente são apagadas por pseudonimização <em className="text-accent">antes</em> de qualquer IA ler a primeira linha — Total conformidade com a LGPD e alinhado à Resolução CFM 2.454/2026 sobre uso de IA na medicina.
+            <p className="text-ink-2 leading-[1.6]" style={{ fontSize: ".93rem" }}>
+              Um ambiente que reúne ferramentas de IA, com tudo que você precisa durante o plantão em um só lugar e com apenas uma única assinatura: transcreve exames, ouve o que você fala e cria prontuários, organiza os pacientes em um dashboard, monta a passagem de plantão, e ainda faz um “brainstorm” baseado em evidências. Tudo isso, sem expor os dados sensíveis do seu paciente, em total conformidade com a LGPD e alinhado à Resolução CFM 2.454/2026 sobre uso de IA na medicina.
             </p>
           </div>
 

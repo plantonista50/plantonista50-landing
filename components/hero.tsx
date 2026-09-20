@@ -43,10 +43,10 @@ export function Hero() {
 
           <h1 className="font-extrabold leading-[1.02] tracking-tightest mb-3 text-ink" style={{ fontSize: "clamp(1.7rem, 3.3vw, 2.65rem)" }}>
             <span data-reveal data-dir="left" className="block">
-              “e se alguém que entendesse esse caos estivesse aqui comigo agora?”
+              “E se eu pudesse dividir esse caos com alguém?”
             </span>
             <span data-reveal data-dir="left" className="block italic font-bold text-accent mt-2" style={{ letterSpacing: "-.045em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
-              Você já se fez essa pergunta? O Plantonista 5.0 é a resposta.
+              Você pode! O Plantonista 5.0 é a resposta.
             </span>
           </h1>
 
@@ -71,8 +71,11 @@ export function Hero() {
             <p className="text-ink font-semibold mb-1" style={{ fontSize: ".98rem" }}>
               O que é o Plantonista 5.0?
             </p>
+            <p className="text-ink-2 leading-[1.55] mb-2.5" style={{ fontSize: ".93rem" }}>
+              Um ambiente que reúne ferramentas de IA, com tudo que você precisa durante o plantão em um só lugar e com apenas uma única assinatura: transcreve exames, cria prontuários, organiza os pacientes em um dashboard, monta a passagem de plantão, e ainda faz um “brainstorm” baseado em evidências.
+            </p>
             <p className="text-ink-2 leading-[1.55]" style={{ fontSize: ".93rem" }}>
-              Um conjunto de apps que usa IA, reunidos em um único ambiente, com tudo que você precisa durante o plantão: transcreve exames, cria prontuários estruturados, organiza os pacientes em um dashboard, monta a passagem de plantão, e ainda faz um “brainstorm” baseado em evidências e pontua os artigos científicos. Foi construído desde o primeiro dia sob o princípio de <em className="text-accent">privacy by design</em>: as informações sensíveis do seu paciente são apagadas por pseudonimização criptográfica <em className="text-accent">antes</em> de qualquer IA ler a primeira linha — não é um filtro adicionado depois, é a própria fundação do sistema. Total conformidade com a LGPD e alinhado à Resolução CFM 2.454/2026 sobre uso de IA na medicina.
+              Foi construído desde o primeiro dia sob o princípio de <em className="text-accent">“privacy by design”</em>: as informações sensíveis do seu paciente são apagadas por pseudonimização <em className="text-accent">antes</em> de qualquer IA ler a primeira linha — Total conformidade com a LGPD e alinhado à Resolução CFM 2.454/2026 sobre uso de IA na medicina.
             </p>
           </div>
 

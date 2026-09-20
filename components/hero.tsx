@@ -63,7 +63,7 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              O seu Copiloto de IA que <b className="italic text-accent font-semibold">todo Emergencista precisava.</b>
+              O seu Copiloto de IA que <b className="italic text-accent font-semibold">todo Emergencista precisa.</b>
             </span>
           </h2>
 

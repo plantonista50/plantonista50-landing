@@ -38,10 +38,10 @@ export function InvestmentReframe() {
             <div className="font-mono text-[.7rem] tracking-[.14em] uppercase font-bold mb-3.5 text-critical">O plantão de sempre</div>
             <ul className="grid gap-2.5 list-none">
               {[
-                "Doze pacientes na cabeça, o tempo todo",
+                "Quinze pacientes na cabeça, o tempo todo",
                 "A burocracia engolindo o intervalo do café",
                 "Aquela dúvida às 3h, sem ninguém para dividir",
-                "Sair do turno mais pesado do que entrou",
+                "Sair do plantão completamente exausto",
               ].map((t) => (
                 <li key={t} className="flex gap-2.5 items-start text-[.92rem] text-ink-2 leading-snug">
                   <Icon name="close" size={16} className="text-critical flex-shrink-0 mt-[3px]" />
@@ -59,10 +59,10 @@ export function InvestmentReframe() {
             <div className="font-mono text-[.7rem] tracking-[.14em] uppercase font-bold mb-3.5 text-accent">O plantão acompanhado</div>
             <ul className="grid gap-2.5 list-none">
               {[
-                ["O painel carrega os pacientes", " por você"],
+                ["O HUD organiza os pacientes", " por você"],
                 ["O prontuário se escreve", " enquanto você fala"],
                 ["Segunda opinião na hora", ", com fonte"],
-                ["Sair do turno com a cabeça leve", ""],
+                ["Sair do plantão ainda energizado", ""],
               ].map(([bold, rest], i) => (
                 <li key={i} className="flex gap-2.5 items-start text-[.92rem] text-ink-2 leading-snug">
                   <Icon name="check" size={16} className="text-accent flex-shrink-0 mt-[3px]" />

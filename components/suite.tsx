@@ -12,18 +12,56 @@ type Mod = {
   name: string;
   bigName?: string;
   tag: string;
-  copy: string;
+  copy: string[]; // um parágrafo por item
   freeBadge?: boolean;
   id?: string;
 };
 
 const MODS: Mod[] = [
-  { num: "01", cat: "RACIOCÍNIO", icon: "neurology", pre: "SuGa", name: "BRAINSTORM", tag: "Copiloto de raciocínio clínico", copy: "A dúvida das 3h da manhã. Recebe o caso, mapeia a zona crítica dos diagnósticos que matam, ranqueia hipóteses por risco — e responde com fontes buscadas na hora em SciELO, PubMed e Europe PMC. Você debate até a conduta fechar.", id: "brainstorm" },
-  { num: "02", cat: "EXAMES", icon: "labs", pre: "SuGa", name: "EXAMINATOR", tag: "Exames em formato compacto", copy: "Cola o laudo ou fotografa o exame. Ele roteia lab vs. imagem, extrai com IA de temperatura zero (não inventa) e devolve o que importa: 15/03 · HB 12.5 · GLI 178. PII removida antes da IA. Menos de 10s.", id: "examinator" },
-  { num: "03", cat: "TRIAGEM", icon: "monitor_heart", pre: "SuGa", name: "TRIAGEM", tag: "NEWS2 / SOFA em tempo real", copy: "Extrai sinais vitais e calcula NEWS2 (enfermaria) ou SOFA (UTI), classifica risco ALTO/MODERADO/BAIXO e mapeia os leitos — paciente por número, nunca por nome. A piora aparece antes de virar urgência.", id: "triagem-mod" },
-  { num: "04", cat: "PRONTUÁRIO", icon: "mic", pre: "SuGa", name: "PRONTUÁRIO", tag: "Escriba clínico anonimizado", copy: "Você fala, ele estrutura: HDA, exame físico e conduta no padrão brasileiro, já anonimizado, com os seus templates. A digitação deixa de roubar o turno.", id: "prontuario" },
-  { num: "05", cat: "EVIDÊNCIA", icon: "menu_book", pre: "SuGa", name: "EVIDENCE", tag: "Veredito sobre o artigo", copy: "Um artigo entra, um veredito sai: MUDA A PRÁTICA, PROMISSOR ou NÃO MUDA. Avalia método, amostra, conflitos de interesse, NNT/NNH — e você pergunta o que quiser sobre ele. Só o que está no artigo." },
-  { num: "06", cat: "PASSAGEM", icon: "swap_horiz", pre: "SuGa", name: "I-PASS", tag: "Handoff por gravidade", copy: "No fim do turno o handoff sai pronto pelo protocolo I-PASS, ordenado por gravidade — UTI primeiro, depois enfermaria — para nenhum paciente crítico ser esquecido na troca." },
+  {
+    num: "01", cat: "RACIOCÍNIO", icon: "neurology", pre: "SuGa", name: "BRAINSTORM", id: "brainstorm",
+    tag: "O suguinha com raciocínio clínico",
+    copy: [
+      "Bateu a dúvida de um caso ou quer um outro ponto de vista? Mande o caso pro SuGa Brainstorm, que ele mapeia a zona crítica dos diagnósticos que você não pode perder, ranqueia hipóteses por risco — e responde com fontes buscadas na hora em SciELO, PubMed, Europe PMC e acrescentamos os principais repositórios de FOAMed que todo emergencista ama. Você debate com ele até a sua conduta fechar.",
+    ],
+  },
+  {
+    num: "02", cat: "EXAMES", icon: "labs", pre: "SuGa", name: "EXAMINATOR", id: "examinator",
+    tag: "Exames em formato compacto",
+    copy: [
+      "O suguinha original. Tudo começou com o SuGa Examinator. Mande o PDF, uma foto ou cole o laudo do exame que ele extrai com IA de temperatura zero (não inventa) e devolve a transcrição em uma linha: 15/03 · HB 12.5 · GLI 178. As informações sensíveis do seu paciente removidas antes de chegar à IA. Demos esse nome como uma brincadeira, fazendo alusão ao filme do “Terminator”.",
+    ],
+  },
+  {
+    num: "03", cat: "TRIAGEM", icon: "monitor_heart", pre: "SuGa", name: "TRIAGEM", id: "triagem-mod",
+    tag: "NEWS2 / SOFA em tempo real",
+    copy: [
+      "Num plantão com 15 pacientes você precisa saber quem deve ser avaliado primeiro, e com isso, nasceu o SuGa Triagem que calcula o NEWS2 / SOFA em tempo real e classifica em risco ALTO | MODERADO | BAIXO, além de sugerir o perfil, se enfermaria ou UTI.",
+      "O SuGa Triagem evoluiu e agora apresenta seus pacientes em um Dashboard que permite a visualização de todos os pacientes de uma maneira gráfica na palma da sua mão. Adeus àqueles “papeizinhos” cheios de garrancho do colega que se perdiam ao longo do plantão.",
+      "O Dashboard que gostamos de chamar de HUD — Head-Up Display — vem com uma nova implementação: você pode conectar seu Telegram e encaminhar lembretes como “Checar a gaso do leito 7” ou “Não esqueça de se hidratar”. Quem mais se preocuparia com você assim?",
+    ],
+  },
+  {
+    num: "04", cat: "PRONTUÁRIO", icon: "mic", pre: "SuGa", name: "PRONTUÁRIO", id: "prontuario",
+    tag: "Escriba clínico anonimizado",
+    copy: [
+      "Você recebeu um paciente na sala crítica, reanimou, intubou, passou acesso central e agora que estabilizou, hora de “pagar a papelada”. O SuGa Prontuário faz isso para você. Você dita a história do seu paciente com tudo que você lembrar, medicações, alergias, sinais vitais, exame físico alterado e condutas, tudo isso pelo celular, e ele monta uma evolução estruturada, para você apenas copiar e colar. O Plantonista 5.0 sincroniza em tempo real as informações entre o celular e o PC. A parte da digitação você deixa com ele. A sua tendinite vai agradecer.",
+    ],
+  },
+  {
+    num: "05", cat: "EVIDÊNCIA", icon: "menu_book", pre: "SuGa", name: "EVIDENCE",
+    tag: "Analisa um artigo com o olhar de um Emergencista e avalia sua relevância para a prática do dia a dia",
+    copy: [
+      "Você manda o artigo, ele devolve um veredito: MUDA A PRÁTICA, PROMISSOR ou NÃO MUDA. Avalia método, amostra, conflitos de interesse, NNT/NNH — e você faz um “bate-bola” sobre o artigo com ele. Atualização direto ao ponto ressaltando a relevância para o plantonista. Suas horas de redes sociais vão reduzir muuuito.",
+    ],
+  },
+  {
+    num: "06", cat: "PASSAGEM", icon: "swap_horiz", pre: "SuGa", name: "I-PASS",
+    tag: "Handoff por gravidade",
+    copy: [
+      "Hora de passar o plantão. Protocolo de “Quioto” ativado. No fim do turno o handoff sai pronto com um clique — Missão cumprida e com “gás” sobrando.",
+    ],
+  },
 ];
 
 export function Suite() {
@@ -33,10 +71,10 @@ export function Suite() {
         <div data-reveal data-dir="left" className="mb-9">
           <Kicker code="O QUE VOCÊ RECEBE">Seis ferramentas</Kicker>
           <h2 className="font-bold text-ink leading-[1.04] mb-4.5" style={{ fontSize: "clamp(2rem, 7vw, 4rem)", letterSpacing: "-.035em" }}>
-            Uma ferramenta para <em className="italic text-accent font-semibold">cada hora difícil.</em>
+            Uma ferramenta para <em className="italic text-accent font-semibold">cada momento do plantão.</em>
           </h2>
           <p className="text-ink-2 max-w-[640px] leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Nós as chamamos de <b className="text-ink">SuGas</b> — soluções garantidas. Cada uma nasceu de um aperto real: a dúvida das 3h, o laudo interminável, o leito que piora em silêncio, a passagem corrida. Todas rodam sobre o <b className="text-ink">ANONM 4.0</b>, o motor que apaga a identidade do paciente <em className="text-accent">antes</em> de qualquer IA ler.
+            Carinhosamente chamamos de <b className="text-ink">suguinhas</b>. Cada suguinha nasceu de uma dor real: a dúvida das 3h da manhã, a transcrição interminável de exames, memorizar todos os pacientes, a passagem cheia de falhas. Todas rodam sobre o <b className="text-ink">ANONM 4.0</b>, o motor que apaga a identidade do paciente <em className="text-accent">antes</em> de chegar na IA.
           </p>
         </div>
 
@@ -73,7 +111,9 @@ export function Suite() {
                 {m.bigName && <span className="font-mono text-[.76rem] font-bold text-accent tracking-[.08em] ml-1">{m.bigName}</span>}
               </h3>
               <div className="font-mono text-[.68rem] text-ink-3 tracking-[.12em] uppercase mb-3.5">{m.tag}</div>
-              <p className="text-ink-2 text-[.94rem] leading-snug m-0">{m.copy}</p>
+              {m.copy.map((para, i) => (
+                <p key={i} className={`text-ink-2 text-[.94rem] leading-snug m-0${i > 0 ? " mt-3" : ""}`}>{para}</p>
+              ))}
               {m.freeBadge && (
                 <span
                   className="inline-flex items-center gap-1.5 mt-3 font-mono text-[.66rem] font-bold text-ok py-1 px-2.5 rounded uppercase tracking-[.08em]"

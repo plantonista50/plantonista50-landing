@@ -12,10 +12,10 @@ export function MidCta() {
       <span className="glow" aria-hidden="true" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 900, height: 400 }} />
       <div className="max-w-[820px] mx-auto relative z-[3]">
         <h3 className="font-bold text-ink leading-[1.16] mb-4" style={{ fontSize: "clamp(1.6rem, 4.4vw, 2.4rem)", letterSpacing: "-.025em" }}>
-          O próximo plantão pode ser diferente. <em className="italic text-accent font-semibold">Trinta segundos decidem.</em>
+          Você já vai sentir a diferença <em className="italic text-accent font-semibold">no primeiro plantão.</em>
         </h3>
         <p className="text-ink-2 mb-7" style={{ fontSize: "1.02rem" }}>
-          Sem cartão, sem instalação, sem fidelidade. Você entra, cola o primeiro exame — e sente a diferença ainda hoje à noite.
+          Sem instalação, sem ter que aprender nada de novo. Você acessa o ambiente pelo PC, escolhe o suguinha e manda o primeiro exame — a diferença você sente na hora.
         </p>
         <a
           href="#cta"
@@ -27,7 +27,7 @@ export function MidCta() {
           <Icon name="arrow_forward" size={18} className="relative z-[1] transition-transform duration-500 ease-power3 group-hover:translate-x-1" />
         </a>
         <div className="mt-5 flex gap-4 md:gap-[18px] flex-wrap justify-center font-mono text-[.76rem] text-ink-3">
-          {["Sem cartão", "Cancela em um clique", "10 análises grátis/mês"].map((t) => (
+          {["Sem instalação", "Sem curva de aprendizado", "Sem pagar nada agora"].map((t) => (
             <span key={t} className="inline-flex items-center gap-1.5">
               <Icon name="check" size={14} className="text-accent" />
               {t}

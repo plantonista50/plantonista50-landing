@@ -21,7 +21,7 @@ export function Footer() {
               Plantonista <span className="font-mono text-ink-3 font-medium text-[.74rem] ml-0.5">5.0</span>
             </div>
             <p className="text-ink-3 text-[.92rem] max-w-[280px] mt-3.5 leading-relaxed">
-              ANONM 4.0 + a SuGa Suite. Seu copiloto de plantão, do raciocínio à passagem. Feito por emergencista, para emergencistas.
+              Seu Copiloto no plantão, do raciocínio à passagem. Feito por emergencista, para emergencistas.
             </p>
             <p className="mt-3.5 font-mono text-[.72rem] text-ink-4">Fortaleza, CE · DPO: Andre Yuuzo Sugayama</p>
           </div>

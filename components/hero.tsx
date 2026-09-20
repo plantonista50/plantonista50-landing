@@ -20,10 +20,10 @@ export function Hero() {
         style={{ top: "-300px", left: "50%", transform: "translateX(-50%)", width: 1400, height: 900, willChange: "transform, opacity" }}
       />
 
-      <div className="max-w-page mx-auto w-full relative z-[3] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-20 items-center">
+      <div className="max-w-page mx-auto w-full relative z-[3] grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 lg:gap-16 items-center">
         <div>
           <div
-            className="inline-flex items-center gap-3 flex-wrap py-2 px-3.5 rounded-full mb-6 font-mono text-[.72rem] text-ink-2"
+            className="inline-flex items-center gap-3 flex-wrap py-2 px-3.5 rounded-full mb-5 font-mono text-[.72rem] text-ink-2"
             style={{ border: "1px solid var(--border)", background: "rgba(29,30,32,.7)" }}
             data-reveal
             data-dir="up"
@@ -41,18 +41,20 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-extrabold leading-[0.98] tracking-tightest mb-4 text-ink" style={{ fontSize: "clamp(2.2rem, 5vw, 3.9rem)" }}>
-            <span data-reveal data-dir="left" className="block">Suba o exame. PDF&nbsp;ou&nbsp;Foto.</span>
-            <span data-reveal data-dir="left" className="block italic font-bold text-accent" style={{ letterSpacing: "-.05em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
-              Seu exame transcrito e protegido pela LGPD.
+          <h1 className="font-extrabold leading-[1.02] tracking-tightest mb-3 text-ink" style={{ fontSize: "clamp(1.7rem, 3.3vw, 2.65rem)" }}>
+            <span data-reveal data-dir="left" className="block">
+              “e se alguém que entendesse esse caos estivesse aqui comigo agora?”
+            </span>
+            <span data-reveal data-dir="left" className="block italic font-bold text-accent mt-2" style={{ letterSpacing: "-.045em", textShadow: "0 0 40px rgba(168,199,250,.35)" }}>
+              Você já se fez essa pergunta? O Plantonista 5.0 é a resposta.
             </span>
           </h1>
 
           <h2
             data-reveal
             data-dir="up"
-            className="font-semibold leading-[1.25] mb-4 text-ink max-w-[560px] flex items-baseline gap-2.5 flex-wrap"
-            style={{ fontSize: "clamp(1.15rem, 2.4vw, 1.65rem)", letterSpacing: "-.02em" }}
+            className="font-semibold leading-[1.25] mb-3 text-ink max-w-[600px] flex items-baseline gap-2.5 flex-wrap"
+            style={{ fontSize: "clamp(1.05rem, 2vw, 1.35rem)", letterSpacing: "-.02em" }}
           >
             <span
               className="font-mono text-[.66rem] font-bold uppercase tracking-[.18em] py-[3px] px-2 rounded-md flex-shrink-0 self-center"
@@ -61,13 +63,18 @@ export function Hero() {
               Plantonista 5.0
             </span>
             <span>
-              O ambiente de IA que <b className="italic text-accent font-semibold">todo Emergencista esperava.</b>
+              O seu Copiloto de IA que <b className="italic text-accent font-semibold">todo Emergencista precisava.</b>
             </span>
           </h2>
 
-          <p data-reveal data-dir="up" className="text-ink-2 leading-relaxed mb-6 max-w-[560px]" style={{ fontSize: "1.04rem" }}>
-            Exame vira resumo. Voz vira prontuário. Dúvida vira resposta com fonte. Plantão vira passagem pronta. E o nome do seu paciente é apagado <em className="text-accent">antes</em> de a IA ler a primeira linha — construído por um emergencista que já esteve do seu lado da maca.
-          </p>
+          <div data-reveal data-dir="up" className="max-w-[600px] mb-5">
+            <p className="text-ink font-semibold mb-1" style={{ fontSize: ".98rem" }}>
+              O que é o Plantonista 5.0?
+            </p>
+            <p className="text-ink-2 leading-[1.55]" style={{ fontSize: ".93rem" }}>
+              Um conjunto de apps que usa IA, reunidos em um único ambiente, com tudo que você precisa durante o plantão: transcreve exames, cria prontuários estruturados, organiza os pacientes em um dashboard, monta a passagem de plantão, e ainda faz um “brainstorm” baseado em evidências e pontua os artigos científicos. Foi construído desde o primeiro dia sob o princípio de <em className="text-accent">privacy by design</em>: as informações sensíveis do seu paciente são apagadas por pseudonimização criptográfica <em className="text-accent">antes</em> de qualquer IA ler a primeira linha — não é um filtro adicionado depois, é a própria fundação do sistema. Total conformidade com a LGPD e alinhado à Resolução CFM 2.454/2026 sobre uso de IA na medicina.
+            </p>
+          </div>
 
           <div data-reveal data-dir="up" className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
             <a
@@ -77,7 +84,7 @@ export function Hero() {
               style={{ letterSpacing: "-.005em", willChange: "transform" }}
             >
               <span className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, transparent 30%, rgba(168,199,250,.55) 50%, transparent 70%)", transform: "translateX(-100%)" }} />
-              <span className="relative z-[1]">Começar grátis — sem cartão</span>
+              <span className="relative z-[1]">Começar grátis agora</span>
               <Icon name="arrow_forward" size={18} className="relative z-[1] transition-transform duration-500 ease-power3 group-hover:translate-x-1" />
             </a>
             <a
@@ -90,9 +97,9 @@ export function Hero() {
           </div>
 
           <div data-reveal data-dir="up" className="flex flex-wrap gap-4 md:gap-[18px] mt-6 font-mono text-[.76rem] text-ink-3">
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />10 análises grátis por mês</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />A IA nunca vê o nome</span>
-            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Feito por emergencista</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />7 dias grátis sem compromisso</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Total conformidade com a LGPD</span>
+            <span className="inline-flex items-center gap-1.5"><Icon name="check" size={15} className="text-accent" />Alinhado à Resolução CFM 2.454/2026</span>
           </div>
         </div>
 

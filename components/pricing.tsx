@@ -7,6 +7,7 @@ type Plan = {
   name: string;
   price: string;
   unit?: string;
+  note?: string;
   tagline: string;
   features: string[];
   cta: string;
@@ -16,47 +17,35 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: "Grátis",
-    price: "R$ 0",
+    name: "Mensal",
+    price: "R$ 149,90",
     unit: "/mês",
-    tagline: "Conheça no seu próximo plantão.",
-    features: [
-      "10 análises por mês",
-      "ANONM 4.0 em toda análise",
-      "EXAMINATOR e PRONTUÁRIO",
-      "Sem cartão de crédito",
-    ],
-    cta: "Começar grátis",
-    href: "#cta",
-  },
-  {
-    name: "Plantonista",
-    price: "R$ 49,90",
-    unit: "/mês",
+    note: "7 dias grátis para testar",
     tagline: "O plantão inteiro, sem limite.",
     features: [
-      "Análises ilimitadas",
-      "As 6 SuGas completas",
-      "Busca científica no BRAINSTORM",
-      "Sincronização entre dispositivos",
+      "Todos os 6 suguinhas, sem limites de uso",
+      "ANONM 4.0 em toda análise",
+      "Sincronização em tempo real celular ↔ PC",
+      "Lembretes e alertas no Telegram",
     ],
-    cta: "Assinar Plantonista",
+    cta: "Começar 7 dias grátis",
     href: "#cta",
-    featured: true,
   },
   {
-    name: "Pro",
-    price: "R$ 89,90",
-    unit: "/mês",
+    name: "Anual",
+    price: "R$ 1.499",
+    unit: "/ano",
+    note: "2 meses grátis · sai por R$ 124,92/mês",
     tagline: "Para quem vive de plantão.",
     features: [
-      "Tudo do Plantonista",
-      "Templates de prontuário próprios",
-      "Prioridade de processamento",
-      "Suporte clínico direto",
+      "Tudo do plano Mensal",
+      "Todos os 6 suguinhas, sem limites de uso",
+      "ANONM 4.0 em toda análise",
+      "Dois meses de presente a cada ano",
     ],
-    cta: "Assinar Pro",
+    cta: "Assinar o anual",
     href: "#cta",
+    featured: true,
   },
   {
     name: "Institucional",
@@ -68,7 +57,7 @@ const PLANS: Plan[] = [
       "DPA e conformidade LGPD",
       "Faturamento por instituição",
     ],
-    cta: "Falar com o time",
+    cta: "Entrar em contato",
     href: "#cta",
   },
 ];
@@ -83,11 +72,11 @@ export function Pricing() {
             Comece grátis. <em className="italic text-accent font-semibold">Assine quando fizer sentido.</em>
           </h2>
           <p className="text-ink-2 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Menos que um lanche do plantão. A anonimização LGPD e o motor ANONM 4.0 entram em todos os planos — inclusive no grátis.
+            Menos que uma coca-cola por dia. Todos os suguinhas à disposição, sem limites.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 lg:gap-4 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 lg:gap-4 items-stretch max-w-[1100px]">
           {PLANS.map((p) => (
             <div
               key={p.name}
@@ -112,6 +101,7 @@ export function Pricing() {
                 <span className="font-extrabold text-ink" style={{ fontSize: "clamp(1.7rem, 4vw, 2.3rem)", letterSpacing: "-.03em" }}>{p.price}</span>
                 {p.unit && <span className="font-mono text-[.8rem] text-ink-3">{p.unit}</span>}
               </div>
+              <div className="font-mono text-[.7rem] text-accent tracking-[.04em] mb-2 min-h-[18px]">{p.note ?? ""}</div>
               <p className="text-ink-3 text-[.9rem] leading-snug mb-5 min-h-[40px]">{p.tagline}</p>
               <ul className="flex flex-col gap-2.5 mb-7">
                 {p.features.map((f) => (
@@ -136,7 +126,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <p data-reveal data-dir="up" className="mt-6 font-mono text-[.72rem] text-ink-4 text-center tracking-[.04em]">
+        <p data-reveal data-dir="up" className="mt-6 font-mono text-[.72rem] text-ink-4 tracking-[.04em]">
           Suporte à decisão clínica · o médico é sempre o validador final · enquadramento CFM / ANVISA (DSS)
         </p>
       </div>

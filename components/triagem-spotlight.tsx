@@ -29,7 +29,7 @@ export function TriagemSpotlight() {
             </p>
             <ul className="list-none grid gap-3 mt-6">
               {[
-                "NEWS2 em tempo real com curva de deterioração por leito",
+                "NEWS2/SOFA classifica a gravidade dos pacientes",
                 "Lembretes no Telegram programados por você",
                 "Dashboard editável com todos os pacientes do turno",
                 "Conectado ao SuGa I-PASS: handoff com a última atualização de cada paciente",

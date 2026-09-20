@@ -42,7 +42,7 @@ export function PrivacyAct() {
             </em>
           </h2>
           <p className="font-mono text-ink-2 max-w-[560px] mx-auto leading-[1.7] tracking-[.02em]" style={{ fontSize: "clamp(.86rem, 1.5vw, 1rem)" }}>
-            Numa era em que informação é a nova moeda, dados clínicos são enviados todos os dias para IAs que não pactuam com a LGPD.
+            Numa era em que informação é a nova moeda, dados clínicos são enviados para treinos de IAs que não pactuam com a LGPD.
           </p>
         </div>
 
@@ -71,13 +71,13 @@ export function PrivacyAct() {
         <div data-reveal data-dir="up" className="max-w-[1000px] flex flex-col items-center">
           <SceneTag>ANONM 4.0 · O escudo</SceneTag>
           <h2 className="font-extrabold leading-[.98] text-ink mb-5" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", letterSpacing: "-.04em" }}>
-            Aqui, a IA{" "}
+            No Plantonista 5.0, a IA{" "}
             <em className="italic font-bold text-accent" style={{ textShadow: "0 0 40px var(--accent-glow)" }}>
-              nunca vê o nome.
+              nunca vê a identificação.
             </em>
           </h2>
           <p className="font-mono text-ink-2 max-w-[560px] mx-auto leading-[1.7] tracking-[.02em]" style={{ fontSize: "clamp(.86rem, 1.5vw, 1rem)" }}>
-            O ANONM 4.0 remove os identificadores no servidor, antes de qualquer análise. O que sai é clínica pura — sem rosto, sem CPF, sem endereço.
+            O ANONM 4.0 remove os identificadores do seu paciente, antes de qualquer análise. O que a IA vê é clínica pura — dados sensíveis totalmente anonimizados.
           </p>
           <div
             className="hud relative mt-8 max-w-[640px] w-full text-left p-5 rounded-2xl"

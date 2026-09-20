@@ -5,7 +5,7 @@ import { Kicker } from "@/lib/kicker";
 const ITEMS = [
   {
     q: "Preciso manter outra assinatura de IA para usar?",
-    a: <>Não. A inteligência já faz parte da plataforma — ditar prontuário e analisar exames funciona direto, sem assinar nada além do Plantonista. Com uma diferença que nenhuma IA genérica oferece: aqui, tudo passa pelo <b className="text-ink">ANONM 4.0</b> antes.</>,
+    a: <>Não. O Plantonista 5.0 funciona stand-alone — todos os suguinhas ficam disponíveis sem limites de uso, tendo apenas uma assinatura. Com uma diferença que nenhuma IA genérica oferece: aqui, tudo passa pelo <b className="text-ink">ANONM 4.0</b> antes.</>,
   },
   {
     q: "É realmente seguro pela LGPD?",
@@ -13,11 +13,11 @@ const ITEMS = [
   },
   {
     q: "Como funcionam os lembretes no Telegram?",
-    a: <>Você programa direto no <b className="text-ink">SuGa TRIAGEM</b>: "checar gasometria do leito 7 às 2h30". O lembrete chega como mensagem no seu Telegram, na hora marcada. Alertas de deterioração (NEWS2 subindo) também chegam automaticamente.</>,
+    a: <>Você programa direto no <b className="text-ink">SuGa TRIAGEM</b>: "checar gasometria do leito 7 às 2h30". O lembrete chega como mensagem no seu Telegram, na hora marcada.</>,
   },
   {
     q: "E se a IA inventar uma dosagem?",
-    a: <>É um risco real em qualquer ferramenta de IA — e nós tratamos esse risco com honestidade. O <b className="text-ink">SuGa BRAINSTORM</b> usa apenas literatura de emergência selecionada, cita a fonte de cada conduta e sinaliza valores fora da referência. A responsabilidade final é sempre sua.</>,
+    a: <>É um risco real em qualquer ferramenta de IA — e nós tratamos esse risco com honestidade. O <b className="text-ink">SuGa BRAINSTORM</b> usa apenas literatura selecionada, cita a fonte de cada conduta. A decisão final é sempre sua, então sempre confira as respostas que receber.</>,
   },
   {
     q: "Quem pode usar?",
@@ -25,7 +25,7 @@ const ITEMS = [
   },
   {
     q: "Quanto custa?",
-    a: <>Tem plano <b className="text-ink">grátis</b> (10 análises/mês, sem cartão). O <b className="text-ink">Plantonista</b> sai por R$ 49,90/mês com análises ilimitadas e as 6 SuGas, e o <b className="text-ink">Pro</b> por R$ 89,90/mês. Hospitais têm plano institucional sob consulta. A anonimização ANONM 4.0 entra em todos.</>,
+    a: <>Menos que um refrigerante por dia. O <b className="text-ink">Plantonista</b> sai por R$ 149,90/mês com análises ilimitadas em todos os suguinhas, e o <b className="text-ink">Plano anual</b> por R$ 1.499,00, ganhando 2 meses grátis. Hospitais têm plano institucional sob consulta.</>,
   },
   {
     q: "Integra com o prontuário do hospital?",

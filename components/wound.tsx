@@ -3,7 +3,7 @@
 import { Kicker } from "@/lib/kicker";
 
 const ITEMS = [
-  { num: "8 min", title: "por paciente no PS", body: "Tempo médio — incluindo a leitura de exames antes de bater na maca." },
+  { num: "10 min", title: "por paciente no PS", body: "Tempo médio — incluindo a leitura de exames antes de bater na maca." },
   { num: "30%", title: "do plantão em burocracia", body: "Prontuário, receita, atestado, passagem. Tempo que não vira cuidado." },
   { num: "30–40%", title: "dos erros por falta de informação", body: "Não é falha do médico — é falha do sistema que entrega tudo fragmentado." },
 ];
@@ -14,11 +14,15 @@ export function Wound() {
       <div className="max-w-page mx-auto px-5 relative z-[3]">
         <div data-reveal data-dir="left">
           <Kicker code="REF · 00">A carga invisível</Kicker>
-          <h2 className="font-bold text-ink leading-[1.04] mb-4.5" style={{ fontSize: "clamp(2rem, 7vw, 4rem)", letterSpacing: "-.035em" }}>
-            Atender é metade do plantão. <em className="italic text-accent font-semibold">A outra metade te consome.</em>
+          <h2 className="font-bold text-ink leading-[1.06] mb-4.5 max-w-[1000px]" style={{ fontSize: "clamp(1.8rem, 5.2vw, 3.4rem)", letterSpacing: "-.035em" }}>
+            A partir de agora, você não está mais sozinho no plantão.{" "}
+            <em className="italic text-accent font-semibold">Você ganhou um Copiloto — mas quem está no comando é Você.</em>
           </h2>
-          <p className="text-ink-2 max-w-[640px] mb-12 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Você não estudou uma década para digitar. Mas a cada turno são dezenas de laudos para decifrar, evoluções para escrever, leitos para vigiar e uma passagem para não esquecer — tudo disputando a mesma cabeça que decide vidas. É essa metade do plantão que o Plantonista 5.0 carrega por você.
+          <p className="text-ink-2 max-w-[680px] mb-4 leading-relaxed" style={{ fontSize: "1.04rem" }}>
+            A IA assume a parte técnica. Você recupera a parte humana da Medicina: mais tempo ao lado do seu paciente, mais tempo pra você mesmo. Menos carga cognitiva → menos cansaço → menos chance de erro → mais segurança em cada decisão que leva o seu nome.
+          </p>
+          <p className="text-ink-2 max-w-[680px] mb-12 leading-relaxed" style={{ fontSize: "1.04rem" }}>
+            O Plantonista 5.0 não foi criado em um laboratório de TI por engenheiros a pedido de Gestores. Ele nasceu em resposta ao caos do plantão — codado por um médico emergencista, que “vive o chão de fábrica”, entre um paciente e outro, durante o próprio plantão.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

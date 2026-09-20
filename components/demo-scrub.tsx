@@ -54,9 +54,9 @@ export function DemoScrub() {
         <div className="max-w-page mx-auto w-full relative z-[3] mb-6 md:mb-8 text-center lg:text-left">
           <div className="font-mono text-[.68rem] text-accent tracking-[.2em] uppercase mb-2">Como funciona · continue rolando</div>
           <h2 className="font-bold text-ink leading-[1.05] m-0" style={{ fontSize: "clamp(1.5rem, 3.6vw, 2.5rem)", letterSpacing: "-.03em" }}>
-            Um plantão de 12 horas. <em className="italic text-accent font-semibold">Trinta segundos de scroll.</em>
+            Um plantão de 12 horas. <em className="italic text-accent font-semibold">30% de burocracia.</em>
           </h2>
-          <p className="text-ink-3 mt-2 m-0 text-[.95rem]">Isto não é um vídeo — é o produto. O seu scroll comanda cada passo.</p>
+          <p className="text-ink-3 mt-2 m-0 text-[.95rem]">Isto não é um vídeo — é o produto. Continue rolando.</p>
         </div>
 
         <div className="max-w-page mx-auto w-full grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8 lg:gap-12 items-center relative z-[3]">
@@ -65,10 +65,10 @@ export function DemoScrub() {
           <div className="demo-rail hidden lg:flex flex-col gap-1.5">
             {[
               ["01", "Você cola o exame"],
-              ["02", "O nome do paciente some"],
-              ["03", "O essencial, em 8 segundos"],
-              ["04", "A piora avisa antes"],
-              ["05", "O plantão passa limpo"],
+              ["02", "A PII do paciente é anonimizada"],
+              ["03", "A transcrição, em 10 segundos"],
+              ["04", "O seu plantão num Dashboard"],
+              ["05", "A passagem do plantão em um clique"],
             ].map(([n, t], i) => (
               <div key={n} className="demo-step flex items-center gap-3 py-2" data-step={i}>
                 <span className="demo-step-num font-mono text-[.7rem] font-bold w-7 h-7 rounded-md flex items-center justify-center border border-[color:var(--border)] text-ink-4">{n}</span>

@@ -83,7 +83,7 @@ export function Pricing() {
             Comece grátis. <em className="italic text-accent font-semibold">Assine quando fizer sentido.</em>
           </h2>
           <p className="text-ink-2 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            Menos que um lanche do plantão. A anonimização LGPD e o motor ANONM 4.0 entram em todos os planos — inclusive no grátis.
+            Menos que uma coca-cola por dia. Todos os suguinhas à disposição, sem limites.
           </p>
         </div>
 

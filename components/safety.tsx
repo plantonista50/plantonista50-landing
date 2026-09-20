@@ -23,14 +23,14 @@ export function Safety() {
               <em className="italic text-accent font-semibold">Anonimizar antes de processar</em> — e não depois — não é escolha técnica. É declaração de valores.
             </p>
             <p className="text-ink-2 text-base leading-relaxed mb-3.5">
-              O <b className="text-ink">ANONM 4.0</b> protege todas as SuGas. A inteligência artificial nunca vê o nome do seu paciente. Os dados sensíveis são removidos no servidor, em camadas, <b className="text-ink">antes</b> de qualquer análise. Cada remoção fica registrada.
+              O <b className="text-ink">ANONM 4.0</b> protege todos os SuGas. A inteligência artificial nunca vê a identificação do seu paciente. Os dados sensíveis são removidos no servidor, em camadas, <b className="text-ink">antes</b> de qualquer análise. Nenhuma identificação fica armazenada, mesmo que anonimizada, em nossos servidores.
             </p>
             <ul className="list-none grid gap-3 mt-5">
               {[
                 "Nome, CPF, telefone, endereço, instituição — removidos automaticamente",
                 "Funciona em texto, PDF, imagem e áudio",
-                "Registro auditável de cada campo removido",
-                "A conversa se apaga sozinha ao fim do plantão",
+                "As camadas de sanitização sofrem auditorias frequentes para garantir a proteção dos PII",
+                "As conversas se apagam sozinhas ao fim do plantão",
               ].map((t) => (
                 <li key={t} className="flex gap-3 items-start text-[.96rem] text-ink-2">
                   <span

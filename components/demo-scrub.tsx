@@ -54,7 +54,7 @@ export function DemoScrub() {
         <div className="max-w-page mx-auto w-full relative z-[3] mb-6 md:mb-8 text-center lg:text-left">
           <div className="font-mono text-[.68rem] text-accent tracking-[.2em] uppercase mb-2">Como funciona · continue rolando</div>
           <h2 className="font-bold text-ink leading-[1.05] m-0" style={{ fontSize: "clamp(1.5rem, 3.6vw, 2.5rem)", letterSpacing: "-.03em" }}>
-            Um plantão de 12 horas. <em className="italic text-accent font-semibold">30% de burocracia.</em>
+            Um plantão de 12 horas. <em className="italic text-accent font-semibold">4h de burocracia.</em>
           </h2>
           <p className="text-ink-3 mt-2 m-0 text-[.95rem]">Isto não é um vídeo — é o produto. Continue rolando.</p>
         </div>

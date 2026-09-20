@@ -36,16 +36,14 @@ const MODS: Mod[] = [
     num: "03", cat: "TRIAGEM", icon: "monitor_heart", pre: "SuGa", name: "TRIAGEM", id: "triagem-mod",
     tag: "NEWS2 / SOFA em tempo real",
     copy: [
-      "Num plantão com 15 pacientes você precisa saber quem deve ser avaliado primeiro, e com isso, nasceu o SuGa Triagem que calcula o NEWS2 / SOFA em tempo real e classifica em risco ALTO | MODERADO | BAIXO, além de sugerir o perfil, se enfermaria ou UTI.",
-      "O SuGa Triagem evoluiu e agora apresenta seus pacientes em um Dashboard que permite a visualização de todos os pacientes de uma maneira gráfica na palma da sua mão. Adeus àqueles “papeizinhos” cheios de garrancho do colega que se perdiam ao longo do plantão.",
-      "O Dashboard que gostamos de chamar de HUD — Head-Up Display — vem com uma nova implementação: você pode conectar seu Telegram e encaminhar lembretes como “Checar a gaso do leito 7” ou “Não esqueça de se hidratar”. Quem mais se preocuparia com você assim?",
+      "Num plantão com 15 pacientes você precisa saber quem deve ser avaliado primeiro, e com isso, nasceu o SuGa Triagem que sugere a classificação de risco e o perfil, se enfermaria ou UTI. Mapeia os pacientes em um Dashboard, o HUD, permitindo a visualização dos pacientes de uma maneira gráfica na palma da sua mão. Diga adeus àqueles “papeizinhos” cheios de garrancho do colega que se perdiam ao longo do plantão.",
     ],
   },
   {
     num: "04", cat: "PRONTUÁRIO", icon: "mic", pre: "SuGa", name: "PRONTUÁRIO", id: "prontuario",
     tag: "Escriba clínico anonimizado",
     copy: [
-      "Você recebeu um paciente na sala crítica, reanimou, intubou, passou acesso central e agora que estabilizou, hora de “pagar a papelada”. O SuGa Prontuário faz isso para você. Você dita a história do seu paciente com tudo que você lembrar, medicações, alergias, sinais vitais, exame físico alterado e condutas, tudo isso pelo celular, e ele monta uma evolução estruturada, para você apenas copiar e colar. O Plantonista 5.0 sincroniza em tempo real as informações entre o celular e o PC. A parte da digitação você deixa com ele. A sua tendinite vai agradecer.",
+      "Você recebeu um paciente na sala crítica, reanimou, intubou, passou acesso e agora que estabilizou, hora de “pagar a papelada”. O SuGa Prontuário faz isso para você. Você dita a história do seu paciente com tudo que você lembrar, medicações, alergias, sinais vitais, exame físico alterado e condutas, tudo isso pelo celular, e ele monta uma evolução estruturada, para você apenas copiar e colar. O Plantonista 5.0 sincroniza em tempo real as informações entre o celular e o PC. A parte da digitação você deixa com ele. A sua tendinite vai agradecer.",
     ],
   },
   {
@@ -59,7 +57,7 @@ const MODS: Mod[] = [
     num: "06", cat: "PASSAGEM", icon: "swap_horiz", pre: "SuGa", name: "I-PASS",
     tag: "Handoff por gravidade",
     copy: [
-      "Hora de passar o plantão. Protocolo de “Quioto” ativado. No fim do turno o handoff sai pronto com um clique — Missão cumprida e com “gás” sobrando.",
+      "Hora de passar o plantão. Protocolo de “Kioto” ativado. No fim do turno o handoff sai pronto com um clique — Missão cumprida e com “gás” sobrando.",
     ],
   },
 ];

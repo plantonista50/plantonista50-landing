@@ -3,9 +3,9 @@
 import { Kicker } from "@/lib/kicker";
 
 const ITEMS = [
-  { num: "10 min", title: "por paciente no PS", body: "Tempo médio — incluindo a leitura de exames antes de bater na maca." },
-  { num: "30%", title: "do plantão em burocracia", body: "Prontuário, receita, atestado, passagem. Tempo que não vira cuidado." },
-  { num: "30–40%", title: "dos erros por falta de informação", body: "Não é falha do médico — é falha do sistema que entrega tudo fragmentado." },
+  { num: "10 min", title: "por paciente no PS", body: "Tempo médio de atendimento no PA." },
+  { num: "30%", title: "do plantão é burocracia", body: "Prontuário, receita, atestado, passagem. Tempo que não vira cuidado." },
+  { num: "40%", title: "dos erros por falta de informação", body: "Não é falha do médico — é falha do sistema que entrega tudo fragmentado." },
 ];
 
 export function Wound() {
@@ -15,14 +15,15 @@ export function Wound() {
         <div data-reveal data-dir="left">
           <Kicker code="REF · 00">A carga invisível</Kicker>
           <h2 className="font-bold text-ink leading-[1.06] mb-4.5 max-w-[1000px]" style={{ fontSize: "clamp(1.8rem, 5.2vw, 3.4rem)", letterSpacing: "-.035em" }}>
-            A partir de agora, você não está mais sozinho no plantão.{" "}
+            A partir de agora, você não está mais sozinho no plantão.
+            <br />
             <em className="italic text-accent font-semibold">Você ganhou um Copiloto — mas quem está no comando é Você.</em>
           </h2>
           <p className="text-ink-2 max-w-[680px] mb-4 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            A IA assume a parte técnica. Você recupera a parte humana da Medicina: mais tempo ao lado do seu paciente, mais tempo pra você mesmo. Menos carga cognitiva → menos cansaço → menos chance de erro → mais segurança em cada decisão que leva o seu nome.
+            A IA assume a parte burocrática. Você fica com a parte humana da Medicina: mais tempo ao lado do seu paciente, mais tempo pra você mesmo. Menos carga cognitiva → menos cansaço → menos chance de erro → mais segurança em cada decisão que leva o seu nome.
           </p>
           <p className="text-ink-2 max-w-[680px] mb-12 leading-relaxed" style={{ fontSize: "1.04rem" }}>
-            O Plantonista 5.0 não foi criado em um laboratório de TI por engenheiros a pedido de Gestores. Ele nasceu em resposta ao caos do plantão — codado por um médico emergencista, que “vive o chão de fábrica”, entre um paciente e outro, durante o próprio plantão.
+            O Plantonista 5.0 não foi criado em um laboratório de TI por engenheiros a pedido de Gestores. Ele nasceu em resposta ao caos do plantão — codado por um médico emergencista, que vive “o chão da fábrica”, entre um paciente e outro, durante o próprio plantão.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

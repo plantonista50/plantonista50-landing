@@ -29,7 +29,7 @@ export function Nav() {
           <a href="#seguranca" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Segurança</a>
           <a href="#planos" className="font-medium text-[.9rem] text-ink-2 hover:text-ink transition-colors duration-500 ease-power3">Planos</a>
           <a
-            href="#cta"
+            href="#planos"
             className="bg-ink text-[#101114] py-2.5 px-[18px] rounded-lg font-bold text-[.86rem] whitespace-nowrap transition-all duration-500 ease-power3 hover:bg-accent hover:shadow-[0_10px_30px_var(--accent-glow)]"
           >
             Solicitar acesso

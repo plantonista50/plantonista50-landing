@@ -9,7 +9,7 @@ export function StickyCta() {
       className="fixed left-3 right-3 bottom-3 z-[90] opacity-0 translate-y-5 pointer-events-none transition-all duration-500 ease-power3 md:hidden"
     >
       <a
-        href="#cta"
+        href="#planos"
         className="flex items-center justify-center gap-2 bg-ink text-[#101114] px-5 py-3.5 rounded-xl font-bold text-[.96rem]"
         style={{ boxShadow: "0 14px 32px rgba(0,0,0,.6), 0 0 0 1px var(--accent-tint-2)" }}
       >

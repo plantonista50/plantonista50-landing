@@ -54,6 +54,12 @@ export function Footer() {
 
           <div>
             <h4 className="font-mono text-[.7rem] text-accent tracking-[.18em] uppercase mb-3.5 font-bold">Contato</h4>
+            <a
+              href="mailto:contato@plantonista50.med.br"
+              className="block py-1.5 text-ink-3 text-[.92rem] transition-colors duration-500 ease-power3 hover:text-ink break-all"
+            >
+              contato@plantonista50.med.br
+            </a>
             {["Imprensa", "Parcerias hospitalares", "Suporte clínico"].map((l) => (
               <a key={l} href="#" className="block py-1.5 text-ink-3 text-[.92rem] transition-colors duration-500 ease-power3 hover:text-ink">
                 {l}

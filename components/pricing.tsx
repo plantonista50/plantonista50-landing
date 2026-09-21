@@ -12,6 +12,7 @@ type Plan = {
   features: string[];
   cta: string;
   href: string;
+  external?: boolean;
   featured?: boolean;
 };
 
@@ -29,7 +30,8 @@ const PLANS: Plan[] = [
       "Lembretes e alertas no Telegram",
     ],
     cta: "Começar 7 dias grátis",
-    href: "#cta",
+    href: "https://hotm.io/nttJfEQC",
+    external: true,
   },
   {
     name: "Anual",
@@ -44,7 +46,8 @@ const PLANS: Plan[] = [
       "Dois meses de presente a cada ano",
     ],
     cta: "Assinar o anual",
-    href: "#cta",
+    href: "https://hotm.io/TPiDpPh",
+    external: true,
     featured: true,
   },
   {
@@ -58,7 +61,7 @@ const PLANS: Plan[] = [
       "Faturamento por instituição",
     ],
     cta: "Entrar em contato",
-    href: "#cta",
+    href: "mailto:contato@plantonista50.med.br",
   },
 ];
 
@@ -113,6 +116,7 @@ export function Pricing() {
               </ul>
               <a
                 href={p.href}
+                {...(p.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={
                   "mt-auto py-3 px-4 rounded-[10px] font-bold text-[.92rem] text-center transition-all duration-500 ease-power3 " +
                   (p.featured
